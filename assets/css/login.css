@@ -1,8 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+html,
 body {
 	background-color: #6cf;
 	font-size: 14px;
 	color: #fff;
+	font-family: 'Varela Round', sans-serif;
+	padding: 0;
+	margin: 0;
 }
+
 .login-container {
 	top: 0;
 	bottom: 0;
