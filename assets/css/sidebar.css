@@ -42,8 +42,13 @@ body {
 	letter-spacing: 1.25px;
 }
 #sidebarMenu {
+<<<<<<< HEAD
 	height: 100%;
 	z-index: 1;
+=======
+	z-index: 1;
+	height: 100%;
+>>>>>>> 5eb9508871259be5cd399c4aafb147065ccbfccc
 	position: fixed;
 	left: 0;
 	width: 250px;
