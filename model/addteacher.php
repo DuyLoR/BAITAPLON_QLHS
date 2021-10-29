@@ -53,6 +53,9 @@
                                         <option>Male</option>
                                     </select>
                                 </div>
+
+                            </div>
+                            <div class="col-md-6">
                                 <div class="form-group text-dark">
                                     <div class="form-group">
                                         <label for="" class="control-label p-1 mt-1">số điện thoại</label>
@@ -62,14 +65,11 @@
                                 </div>
                                 <div class="form-group text-dark">
                                     <div class="form-group">
-                                        <label for="" class="control-label p-1 mt-1">dân tộc</label>
+                                        <label for="" class="control-label p-1 mt-1">Email</label>
                                         <input type="text" class="form-control form-control-sm" name="student_code"
                                             value="" required>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-
 
                                 <div class="form-group text-dark">
                                     <div class="form-group">
@@ -79,20 +79,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group text-dark">
-                                    <div class="form-group">
-                                        <label for="" class="control-label p-1 mt-1">Căn cước công dân</label>
-                                        <input type="text" class="form-control form-control-sm" name="student_code"
-                                            value="" required>
-                                    </div>
-                                </div>
-                                <div class="form-group text-dark">
-                                    <div class="form-group">
-                                        <label for="" class="control-label p-1 mt-1">ngày vào trường</label>
-                                        <input type="date" class="form-control form-control-sm" name="student_code"
-                                            value="" required>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
 
