@@ -47,7 +47,7 @@
                     alert("Vui lòng nhập đầy đủ TK và MK");
                 } else {
                     $.ajax({
-                        url: "process-login.php",
+                        url: "../process/process-login.php",
                         method: "POST",
                         data: {
                             do_login: "do_login",

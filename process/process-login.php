@@ -4,7 +4,7 @@ if (isset($_POST['do_login'])) { //phải bấm đăng nhập thì mới vào đ
     $userName = $_POST['userName'];
     $password = $_POST['password'];
 
-    include 'config.php';
+    include '../config/config.php';
     $sql = "SELECT * FROM dangnhap WHERE tendangnhap = '$userName'";
     $result = mysqli_query($conn, $sql);
 
