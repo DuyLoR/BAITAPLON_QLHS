@@ -67,6 +67,7 @@
             <?php include 'classes.php'; ?>
         </div>
         <!--Container Main end-->
+
         <script src="../assets/js/sidebar.js"></script>
     </body>
 

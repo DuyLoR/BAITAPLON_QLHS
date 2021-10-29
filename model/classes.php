@@ -70,24 +70,37 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th class="text-center">1</th>
+                                        <!-- Lấy dữ liệu từ database -->
+                                        <?php
+                                        //? mở kết nối
+                                        include '../config/config.php';
+                                        $sql = "SELECT * FROM lop, giaovien WHERE lop.magvcn = giaovien.magv";
+                                        $result = mysqli_query($conn, $sql);
+                                        //? xác thực
+                                        if (mysqli_num_rows($result) > 0) {
+                                            $stt = 1;
+                                            while ($row = mysqli_fetch_assoc($result)) { ?>
+                                                <tr>
+                                                    <th class="text-center"><?php echo $stt++; ?></th>
+                                                    <td><?php echo $row['malop']; ?></td>
+                                                    <td><?php echo $row['tenlop'] ?></td>
+                                                    <td><?php echo $row['tengv'] ?></td>
+                                                    <td class="text-center">
+                                                        <div class="btn-group">
+                                                            <a href="#" class="btn btn-primary btn-flat manage_class">
+                                                                <i class="fas fa-edit"></i>
+                                                            </a>
+                                                            <button type="button" class="btn btn-danger btn-flat delete_class">
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
 
-                                            <td>class 1</td>
-                                            <td>61th1</td>
-                                            <td>Nguyễn Văn Phú</td>
-                                            <td class="text-center">
-                                                <div class="btn-group">
-                                                    <a href="#" class="btn btn-primary btn-flat manage_class">
-                                                        <i class="fas fa-edit"></i>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger btn-flat delete_class">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </div>
-                                            </td>
-
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
