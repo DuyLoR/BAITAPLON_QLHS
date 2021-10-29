@@ -12,12 +12,12 @@ if (isset($_POST['do_login'])) { //phải bấm đăng nhập thì mới vào đ
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         // $pass_hash = $row['user_pass'];
-        $level = $row['quantrivien'];
+        $level = $row['capdo'];
         // if (password_verify($password, $pass_hash))
         if ($password == $row['matkhau']) {
             if ($level == 1) { //Kiểm tra user level
                 echo "admin";  //admin
-            } else if ($level == 0) {
+            } else if ($level == 2) {
                 echo "teacher"; //teacher
             } else {
                 echo "student";
