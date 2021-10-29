@@ -17,9 +17,9 @@ $(document).ready(function(){
                 },
                 success : function(response){
                     if (response == "admin") {
-                        window.location.href="index.php";
+                        window.location.href="admin-index.php";
                     }else if(response=="teacher"){
-                        window.location.href="index-teacher.php";
+                        window.location.href="teacher-index.php";
                     }else if(response=="wrong"){
                         alert("Mật khẩu không chính xác !");
                     }else {
