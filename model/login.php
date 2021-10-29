@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-md-12 form-group">
                 <input type="submit" name="login" class="btn btn-primary btn-block btn-login" value="Đăng nhập">
-                <input type="submit" name="view" class="btn btn-success btn-block btn-view" value="Xem kết quả">
+                <input type="submit" name="view" class="btn btn-success btn-block btn-view" value="Quên mật khẩu">
             </div>
         </div>
     </div>
