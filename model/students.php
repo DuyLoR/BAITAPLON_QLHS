@@ -30,7 +30,8 @@
             <div class="card card-outline card-primary">
                 <div class="card-header">
                     <div class="card-tools">
-                        <a href="#" class="btn btn-block btn-sm btn-default btn-flat border-primary new_class"><i class="fa fa-plus"></i>Add new</a>
+                        <a href="#" class="btn btn-block btn-sm btn-default btn-flat border-primary new_class"><i
+                                class="fa fa-plus"></i>Add new</a>
                     </div>
                 </div>
 
@@ -61,7 +62,6 @@
                                         <col width="15%">
                                         <col width="15%">
                                         <col width="7.5%">
-                                        <col width="7.5%">
 
 
                                     </colgroup>
@@ -72,24 +72,33 @@
                                             <th>Tên học sinh</th>
                                             <th>Lớp</th>
                                             <th>Giới tính</th>
-                                            <th>Dân tộc</th>
+                                            <th>Tên phụ huynh</th>
                                             <th>Địa chỉ</th>
-                                            <th>Số CCCD</th>
                                             <th>Khoá học</th>
                                             <th class="text-center">Hành động</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <!-- Lấy dữ liệu từ database -->
+                                        <?php
+                                        //? mở kết nối
+                                        include '../config/config.php';
+                                        $sql = "SELECT * FROM hocsinh, lop, phuhuynh WHERE hocsinh.malop = lop.malop and hocsinh.maph = phuhuynh.maph";
+                                        $result = mysqli_query($conn, $sql);
+                                        //? xác thực
+                                        if (mysqli_num_rows($result) > 0) {
+                                            $stt = 1;
+                                            while ($row = mysqli_fetch_assoc($result)) { ?>
                                         <tr>
-                                            <th class="text-center">1</th>
-                                            <td>hs1</td>
-                                            <td>Nguyễn Văn Phú</td>
-                                            <td>61th1</td>
-                                            <td>Nam</td>
-                                            <td>Kinh</td>
-                                            <td>Hà Nam</td>
-                                            <td>035201002706</td>
-                                            <td>61</td>
+                                            <th class="text-center"><?php echo $stt++; ?></th>
+                                            <td><?php echo $row['mahs']; ?></td>
+                                            <td><?php echo $row['hoten'] ?></td>
+                                            <td><?php echo $row['tenlop'] ?></td>
+                                            <td><?php echo ($row['gioitinh'] == 1 ?"Nam":"Nữ"); ?></td>
+                                            <td><?php echo $row['tenph'] ?></td>
+                                            <td><?php echo $row['diachi'] ?></td>
+                                            <td><?php echo $row['khoahoc'] ?></td>
                                             <td class="text-center">
                                                 <div class="btn-group">
                                                     <a href="#" class="btn btn-primary btn-flat manage_class">
@@ -100,8 +109,11 @@
                                                     </button>
                                                 </div>
                                             </td>
-
                                         </tr>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>

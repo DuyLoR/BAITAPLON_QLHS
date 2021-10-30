@@ -14,7 +14,8 @@
             <div class="card card-outline card-primary">
                 <div class="card-header">
                     <div class="card-tools">
-                        <a href="#" class="btn btn-block btn-sm btn-default btn-flat border-primary new_class"><i class="fa fa-plus"></i>Add new</a>
+                        <a href="#" class="btn btn-block btn-sm btn-default btn-flat border-primary new_class"><i
+                                class="fa fa-plus"></i>Add new</a>
                     </div>
                 </div>
 
@@ -48,27 +49,37 @@
                                     </colgroup>
                                     <thead>
                                         <tr>
+                                            <th class="text-center">#</th>
                                             <th>Mã giáo viên</th>
                                             <th>Tên giáo viên</th>
                                             <th>Giới tính</th>
                                             <th>Chức vụ</th>
                                             <th>Số điện thoại</th>
                                             <th>Email</th>
-                                            <th>Số CCCD</th>
                                             <th>Địa chỉ</th>
                                             <th class="text-center">Hành động</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <!-- Lấy dữ liệu từ database -->
+                                        <?php
+                                        //? mở kết nối
+                                        include '../config/config.php';
+                                        $sql = "SELECT * FROM giaovien";
+                                        $result = mysqli_query($conn, $sql);
+                                        //? xác thực
+                                        if (mysqli_num_rows($result) > 0) {
+                                            $stt = 1;
+                                            while ($row = mysqli_fetch_assoc($result)) { ?>
                                         <tr>
-                                            <td>gv1</td>
-                                            <td>Nguyễn Văn Phú</td>
-                                            <td>Nam</td>
-                                            <td>GVCN</td>
-                                            <td>0342298409</td>
-                                            <td>phu83001@gmail.com</td>
-                                            <td>035201002706</td>
-                                            <td>Ha nam</td>
+                                            <th class="text-center"><?php echo $stt++; ?></th>
+                                            <td><?php echo $row['magv']; ?></td>
+                                            <td><?php echo $row['tengv'] ?></td>
+                                            <td><?php echo ($row['gioitinh'] == 1 ?"Nam":"Nữ"); ?></td>
+                                            <td><?php echo $row['chucvu'] ?></td>
+                                            <td><?php echo $row['sodt'] ?></td>
+                                            <td><?php echo $row['email'] ?></td>
+                                            <td><?php echo $row['diachi'] ?></td>
                                             <td class="text-center">
                                                 <div class="btn-group">
                                                     <a href="#" class="btn btn-primary btn-flat manage_class">
@@ -79,7 +90,11 @@
                                                     </button>
                                                 </div>
                                             </td>
-
+                                        </tr>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
                                         </tr>
                                     </tbody>
                                 </table>
