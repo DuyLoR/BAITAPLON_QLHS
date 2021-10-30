@@ -76,9 +76,10 @@
 
 <script>
     $(document).ready(function() {
+        $('#list').dataTable()
+
         $('.newClass').click(function() {
             $('#contents').load("add-class.php")
         })
     })
 </script>
-

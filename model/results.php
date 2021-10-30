@@ -1,5 +1,3 @@
-
-
 <div class="conten-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -77,6 +75,7 @@
 
 <script>
     $(document).ready(function() {
+        $('#list').dataTable()
         $('.newResult').click(function() {
             $('#contents').load("add-mark.php")
         })

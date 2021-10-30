@@ -78,9 +78,10 @@
 
 <script>
     $(document).ready(function() {
+        $('#list').dataTable()
+
         $('.newTeacher').click(function() {
             $('#contents').load("add-teacher.php")
         })
     })
 </script>
-
