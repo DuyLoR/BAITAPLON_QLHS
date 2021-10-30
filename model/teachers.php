@@ -2,12 +2,15 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
+
                 <h1 class="m-0 text-start">Danh sách giáo viên</h1>
+
             </div>
         </div>
         <hr class="border-primary">
     </div>
 </div>
+
 <div class="col col-lg-12">
     <div class="card card-outline card-primary">
         <div class="card-header">
@@ -80,3 +83,4 @@
         })
     })
 </script>
+
