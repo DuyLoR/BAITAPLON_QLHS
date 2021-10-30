@@ -76,7 +76,7 @@
         </div>
         <!--Container Main end-->
 
-        <script src="../assets/js/sidebar.js"></script>
+        <script src="../assets/js/main.js"></script>
     </body>
 
 </html>

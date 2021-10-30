@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-start">Classes</h1>
+                <h1 class="m-0 text-start">Danh sách lớp học</h1>
             </div>
         </div>
         <hr class="border-primary">
@@ -12,7 +12,7 @@
     <div class="card card-outline card-primary">
         <div class="card-header">
             <div class="card-tools">
-                <a class="btn btn-block btn-sm btn-default btn-flat border-primary new_subject" href="javascript:void(0)"><i class="fa fa-plus"></i>Add new</a>
+                <a class="btn btn-block btn-sm btn-default btn-flat border-primary newClass" href="javascript:void(0)"><i class="fa fa-plus"></i>Thêm</a>
             </div>
         </div>
 
@@ -75,10 +75,8 @@
 
 <script>
     $(document).ready(function() {
-        $('#list').dataTable()
-
-        $('.new_subject').click(function() {
-            uni_modal("Thêm môn học", "addsubject.php")
+        $('.newClass').click(function() {
+            $('#contents').load("add-class.php")
         })
     })
 </script>

@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 
+    // sidebar
     const showNavbar = (toggleId, navId, bodyId, headerId) =>{
     const toggle = document.getElementById(toggleId),
     nav = document.getElementById(navId),
@@ -56,5 +57,31 @@ document.addEventListener("DOMContentLoaded", function(event) {
     $("#results").click(function() {
         $("#contents").load('results.php');
     });
+
+    // data table
+    // $('#list').dataTable()
+
+    // //thêm 
+    // $('.newResult').click(function() {
+    //     $('#contents').load("add-mark.php")
+    // })
+
+
+    // $('.newTeacher').click(function() {
+    //     $('#contents').load("add-teacher.php")
+    // })
+
+
+    // $('.newSubject').click(function() {
+    //     $('#contents').load("add-subject.php")
+    // })
+
+    // $('.newStudent').click(function() {
+    //     $('#contents').load("add-student.php")
+    // })
+
+    // $('.newClass').click(function() {
+    //     $('#contents').load("add-class.php")
+    // })
     
     });
