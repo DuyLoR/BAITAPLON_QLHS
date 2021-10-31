@@ -83,6 +83,7 @@
 
 <script>
     $(document).ready(function() {
+        $('#list').dataTable()
         $('.newStudent').click(function() {
             $('#contents').load("add-student.php")
         })

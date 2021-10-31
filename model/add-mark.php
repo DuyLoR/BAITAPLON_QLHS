@@ -3,32 +3,32 @@
     <div class="col-lg-12">
         <div class="card card-outline card-primary border-2 border-info mt-4">
             <div class="card-body ">
-                <form action="" id="manage-student">
+                <form action="../process/process-add-mark.php" id="manage-student">
                     <input type="hidden" name="id" value="">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Mã môn học#</label>
-                                    <input type="text" class="form-control form-control-sm" name="student_code" value="" required>
+                                    <input type="text" class="form-control form-control-sm" name="subjectID" value="" required>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Mã học sinh</label>
-                                    <input type="text" class="form-control form-control-sm" name="student_code" value="" required>
+                                    <input type="text" class="form-control form-control-sm" name="studentID" value="" required>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Học Kỳ</label>
-                                    <input type="text" class="form-control form-control-sm" name="student_code" value="" required>
+                                    <input type="text" class="form-control form-control-sm" name="courseName" value="" required>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Điểm miệng</label>
-                                    <input type="text" class="form-control form-control-sm" name="student_code" value="" required>
+                                    <input type="text" class="form-control form-control-sm" name="markFirst" value="" required>
                                 </div>
                             </div>
 
@@ -40,24 +40,21 @@
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Điểm giữa kỳ</label>
-                                    <input type="text" class="form-control form-control-sm" name="student_code" value="" required>
+                                    <input type="text" class="form-control form-control-sm" name="markSecond" value="" required>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Điểm cuối kỳ</label>
-                                    <input type="text" class="form-control form-control-sm" name="student_code" value="" required>
+                                    <input type="text" class="form-control form-control-sm" name="markThird" value="" required>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Điểm trung bình</label>
-                                    <input type="text" class="form-control form-control-sm" name="student_code" value="" required>
+                                    <input type="text" class="form-control form-control-sm" name="markAvg" value="" required>
                                 </div>
                             </div>
-
-
-
 
                         </div>
                     </div>
@@ -67,7 +64,7 @@
             </div>
             <div class="card-footer border-top border-info">
                 <div class="d-flex w-100 justify-content-center align-items-center">
-                    <button class="btn btn-success  mx-2" form="#">Lưu</button>
+                    <button class="btn btn-success  mx-2" type="submit" name = "btnSubmit">Lưu</button>
                     <a class="btn btn-success mx-2 backResult" href="#">Quay lại</a>
                 </div>
             </div>

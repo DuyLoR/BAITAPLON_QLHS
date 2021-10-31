@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     });
 
     // data table
-    // $('#list').dataTable()
+    $('#list').dataTable()
 
     // //thêm 
     // $('.newResult').click(function() {

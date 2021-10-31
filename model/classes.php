@@ -1,8 +1,11 @@
+
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1 class="m-0 text-start">Danh sách lớp học</h1>
+
+
 
 
             </div>
@@ -78,6 +81,8 @@
 
 <script>
     $(document).ready(function() {
+        $('#list').dataTable()
+
         $('.newClass').click(function() {
             $('#contents').load("add-class.php")
         })
