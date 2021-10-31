@@ -105,7 +105,7 @@ session_start();
         //? xoá lớp 
         $('.deleteClass').click(function() {
             $id = $(this).attr('name'); //? bắt giá trị name của hàng
-            if (confirm("Bạn có muốn xoá lớp " + $id + " không?")) {
+            if (confirm("Bạn có muốn xoá lớp '" + $id + "' không?")) {
                 //? nếu đồng ý
                 $.ajax({
                     type: "post",
