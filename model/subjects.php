@@ -22,7 +22,7 @@ session_start();
         </div>
 
         <div class="card-body">
-            <table class="table table-bordered" id="list">
+            <table class="table cell-border table-bordered" id="list">
                 <!-- <colgroup>
                     <col width="10%">
                     <col width="15%">
