@@ -18,7 +18,8 @@ session_start();
     <div class="card card-outline card-primary">
         <div class="card-header">
             <div class="card-tools">
-                <a class="btn btn-block btn-sm btn-default btn-flat border-primary newTeacher" href="javascript:void(0)"><i class="fa fa-plus"></i>Thêm</a>
+                <a class="btn btn-block btn-sm btn-default btn-flat border-primary newTeacher"
+                    href="javascript:void(0)"><i class="fa fa-plus"></i>Thêm</a>
             </div>
         </div>
 
@@ -45,47 +46,62 @@ session_start();
                         <th>Chức vụ</th>
                         <th>Số điện thoại</th>
                         <th>Email</th>
-                        <th>Số CCCD</th>
                         <th>Địa chỉ</th>
                         <!-- //? là admin thì mới có quyền chỉnh sửa -->
                         <?php
                         if ($_SESSION['currentLevel'] == 1) {
                         ?>
-                            <th class="text-center">Hành động</th>
+                        <th class="text-center">Hành động</th>
                         <?php
                         }
                         ?>
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Lấy dữ liệu từ database -->
+                    <?php
+                    //? mở kết nối
+                    include '../config/config.php';
+                    $sql = "SELECT * FROM giaovien";
+                    $result = mysqli_query($conn, $sql);
+                    //? xác thực
+                    if (mysqli_num_rows($result) > 0) {
+                    $stt = 1;
+                    while ($row = mysqli_fetch_assoc($result)) { ?>
                     <tr>
-                        <td class="text-center">1</td>
-                        <td>gv1</td>
-                        <td>Nguyễn Văn Phú</td>
-                        <td>Nam</td>
-                        <td>GVCN</td>
-                        <td>0342298409</td>
-                        <td>phu83001@gmail.com</td>
-                        <td>035201002706</td>
-                        <td>Ha nam</td>
+                        <th class="text-center"><?php echo $stt++; ?></th>
+                        <td><?php echo $row['magv']; ?></td>
+                        <td><?php echo $row['tengv'] ?></td>
+                        <td><?php echo ($row['gioitinh'] == 1 ?"Nam":"Nữ"); ?></td>
+                        <td><?php echo $row['chucvu'] ?></td>
+                        <td><?php echo $row['sodt'] ?></td>
+                        <td><?php echo $row['email'] ?></td>
+                        <td><?php echo $row['diachi'] ?></td>
+                        <!-- session phân chia vai trò -->
                         <?php
                         if ($_SESSION['currentLevel'] == 1) {
                         ?>
-                            <td class="text-center">
-                                <div class="btn-group">
-                                    <a href="#" class="btn btn-primary btn-flat manage_class">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <button type="button" class="btn btn-danger btn-flat delete_class">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </div>
-                            </td>
+                        <td class="text-center">
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-primary btn-flat manage_class">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button type="button" class="btn btn-danger btn-flat delete_class">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
                         <?php
-                        }
+                            }
                         ?>
-
+                        <!-- session phân chia vai trò -->
+                        <?php
+                                }
+                            }
+                        ?>
                     </tr>
+
+
                 </tbody>
             </table>
         </div>
@@ -93,9 +109,9 @@ session_start();
 </div>
 
 <script>
-    $(document).ready(function() {
-        $('.newTeacher').click(function() {
-            $('#contents').load("add-teacher.php")
-        })
+$(document).ready(function() {
+    $('.newTeacher').click(function() {
+        $('#contents').load("add-teacher.php")
     })
+})
 </script>
