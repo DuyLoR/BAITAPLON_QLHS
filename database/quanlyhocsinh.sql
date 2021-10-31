@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2021 at 12:43 PM
+-- Generation Time: Oct 31, 2021 at 12:23 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -62,9 +62,12 @@ CREATE TABLE `diem` (
 --
 
 INSERT INTO `diem` (`mahs`, `mamh`, `diemm`, `diemgk`, `diemck`) VALUES
+('HS00', 'MH00', 10, 10, 10),
+('HS00', 'MH01', 8, 8, 8),
+('HS00', 'MH02', 5, 5, 5),
+('HS00', 'MH00', 1, 1, 1),
 ('HS00', 'MH00', 2, 2, 2),
-('HS00', 'MH01', 5, 5, 5),
-('HS00', 'MH02', 10, 10, 10);
+('HS00', 'MH00', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -173,7 +176,7 @@ ALTER TABLE `dangnhap`
 -- Indexes for table `diem`
 --
 ALTER TABLE `diem`
-  ADD PRIMARY KEY (`mahs`,`mamh`),
+  ADD KEY `mahs` (`mahs`),
   ADD KEY `mamh` (`mamh`);
 
 --
