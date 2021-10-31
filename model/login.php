@@ -59,7 +59,9 @@
                             if (response == "admin") {
                                 window.location.href = "admin-index.php";
                             } else if (response == "teacher") {
-                                window.location.href = "teacher-index.php";
+                                window.location.href = "admin-index.php";
+                            } else if (response == "student") {
+                                window.location.href = "admin-index.php"
                             } else if (response == "wrong") {
                                 alert("Mật khẩu không chính xác !");
                             } else {

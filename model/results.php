@@ -1,5 +1,6 @@
-
-
+<?php
+session_start();
+?>
 <div class="conten-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -22,8 +23,8 @@
         </div>
 
         <div class="card-body">
-            <table class="table cell-border" id="list">
-                <colgroup>
+            <table class="table table-bordered" id="list">
+                <!-- <colgroup>
                     <col width="5%">
                     <col width="10%">
                     <col width="20%">
@@ -33,7 +34,7 @@
                     <col width="10%">
                     <col width="10%">
                     <col width="10%">
-                </colgroup>
+                </colgroup> -->
                 <thead>
                     <tr>
                         <th class="text-center">#</th>
@@ -44,7 +45,14 @@
                         <th>Điểm cc</th>
                         <th>Điểm giữa kỳ</th>
                         <th>Điểm thi</th>
-                        <th class="text-center">Hành động</th>
+                        <!-- //? là admin thì mới có quyền chỉnh sửa -->
+                        <?php
+                        if ($_SESSION['currentLevel'] == 1) {
+                        ?>
+                            <th class="text-center">Hành động</th>
+                        <?php
+                        }
+                        ?>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,16 +65,23 @@
                         <td>10</td>
                         <td>10</td>
                         <td>10</td>
-                        <td class="text-center">
-                            <div class="btn-group">
-                                <a href="#" class="btn btn-primary btn-flat manage_class">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <button type="button" class="btn btn-danger btn-flat delete_class">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </td>
+                        <!-- //? là admin thì mới hiện nút sửa -->
+                        <?php
+                        if ($_SESSION['currentLevel'] == 1) {
+                        ?>
+                            <td class="text-center">
+                                <div class="btn-group">
+                                    <a href="#" class="btn btn-primary btn-flat manage_class">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <button type="button" class="btn btn-danger btn-flat delete_class">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        <?php
+                        }
+                        ?>
 
                     </tr>
                 </tbody>

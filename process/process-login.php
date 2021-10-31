@@ -16,11 +16,15 @@ if (isset($_POST['do_login'])) { //phải bấm đăng nhập thì mới vào đ
         // if (password_verify($password, $pass_hash))
         if ($password == $row['matkhau']) {
             $_SESSION['currentUser'] = $userName;
-            if ($level == 1) { //Kiểm tra user level
-                echo "admin";  //admin
-            } else if ($level == 2) {
-                echo "teacher"; //teacher
-            } else {
+            //Kiểm tra user level
+            if ($level == 1) { //admin
+                $_SESSION['currentLevel'] = $level;
+                echo "admin";
+            } else if ($level == 2) { //teacher
+                $_SESSION['currentLevel'] = $level;
+                echo "teacher";
+            } else { //student
+                $_SESSION['currentLevel'] = $level;
                 echo "student";
             }
         } else {
