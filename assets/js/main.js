@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         $("#contents").load('students.php');
     });
     $("#results").click(function() {
-        $("#contents").load('results.php');
+        $("#contents").load('marks.php');
     });
 
     // data table

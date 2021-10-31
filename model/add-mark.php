@@ -77,7 +77,7 @@
 <script>
     $(document).ready(function() {
         $('.backResult').click(function() {
-            $('#contents').load("results.php")
+            $('#contents').load("marks.php")
         })
     })
 </script>
