@@ -94,6 +94,9 @@ session_start();
 
 <script>
     $(document).ready(function() {
+        //? import thư viện data table
+        $('#list').dataTable()
+
         $('.newSubject').click(function() {
             $('#contents').load("add-subject.php")
         })

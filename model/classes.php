@@ -97,6 +97,9 @@ session_start();
 
 <script>
     $(document).ready(function() {
+        //? import thư viện data table
+        $('#list').dataTable()
+
         $('.newClass').click(function() {
             $('#contents').load("add-class.php")
         })
