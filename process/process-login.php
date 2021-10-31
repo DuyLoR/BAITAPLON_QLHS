@@ -15,8 +15,9 @@ if (isset($_POST['do_login'])) { //phải bấm đăng nhập thì mới vào đ
         $level = $row['capdo'];
         // if (password_verify($password, $pass_hash))
         if ($password == $row['matkhau']) {
-            //cấp session
-            $_SESSION['current_user'] = $userName;
+
+            $_SESSION['currentUser'] = $userName;
+
             if ($level == 1) { //Kiểm tra user level
                 echo "admin";  //admin
             } else if ($level == 2) {
