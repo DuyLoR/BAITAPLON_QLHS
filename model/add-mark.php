@@ -10,64 +10,72 @@
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Mã môn học#</label>
-                                    <input type="text" class="form-control form-control-sm" name="student_code" value="" required>
+                                    <select id="subjectID" id="" class="custom-select custom-select-sm" required>
+                                        <!-- Lấy dữ liệu từ database -->
+                                        <?php
+                                    //? mở kết nối
+                                    include '../config/config.php';
+                                    $sql = "SELECT * FROM monhoc";
+                                    $result = mysqli_query($conn, $sql);
+                                    //? xác thực
+                                    if (mysqli_num_rows($result) > 0) {
+                                        while ($row = mysqli_fetch_assoc($result)) { ?>
+                                        <option><?php echo $row['mamh']; ?></option>
+                                        <?php
+                                        }
+                                    }
+                                    ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Mã học sinh</label>
-                                    <input type="text" class="form-control form-control-sm" name="student_code" value="" required>
-                                </div>
-                            </div>
-                            <div class="form-group text-dark">
-                                <div class="form-group">
-                                    <label for="" class="control-label p-1 mt-1">Học Kỳ</label>
-                                    <input type="text" class="form-control form-control-sm" name="student_code" value="" required>
+                                    <select id="studentID" id="" class="custom-select custom-select-sm" required>
+                                        <!-- Lấy dữ liệu từ database -->
+                                        <?php
+                                    $sql = "SELECT * FROM hocsinh";
+                                    $result = mysqli_query($conn, $sql);
+                                    //? xác thực
+                                    if (mysqli_num_rows($result) > 0) {
+                                        while ($row = mysqli_fetch_assoc($result)) { ?>
+                                        <option><?php echo $row['mahs']; ?></option>
+                                        <?php
+                                        }
+                                    }
+                                    ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Điểm miệng</label>
-                                    <input type="text" class="form-control form-control-sm" name="student_code" value="" required>
+                                    <input type="number" class="form-control form-control-sm" id="markFirst" value="" required>
                                 </div>
                             </div>
 
                         </div>
                         <div class="col-md-6">
-
-
-
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Điểm giữa kỳ</label>
-                                    <input type="text" class="form-control form-control-sm" name="student_code" value="" required>
+                                    <input type="number" class="form-control form-control-sm" id="markSecond" value="" required>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Điểm cuối kỳ</label>
-                                    <input type="text" class="form-control form-control-sm" name="student_code" value="" required>
+                                    <input type="number" class="form-control form-control-sm" id="markThird" value="" required>
                                 </div>
                             </div>
-                            <div class="form-group text-dark">
-                                <div class="form-group">
-                                    <label for="" class="control-label p-1 mt-1">Điểm trung bình</label>
-                                    <input type="text" class="form-control form-control-sm" name="student_code" value="" required>
-                                </div>
-                            </div>
-
-
-
-
                         </div>
                     </div>
-
                 </form>
 
             </div>
             <div class="card-footer border-top border-info">
                 <div class="d-flex w-100 justify-content-center align-items-center">
-                    <button class="btn btn-success  mx-2" form="#">Lưu</button>
+                    <button class="btn btn-success  mx-2" id="btnSubmit">Lưu</button>
                     <a class="btn btn-success mx-2 backResult" href="#">Quay lại</a>
                 </div>
             </div>
@@ -79,5 +87,38 @@
         $('.backResult').click(function() {
             $('#contents').load("marks.php")
         })
+
+        $('#btnSubmit').click(function () { 
+        $subjectID = $('#subjectID').val();
+        $studentID = $('#studentID').val();
+        $markFirst = $('#markFirst').val();
+        $markSecond = $('#markSecond').val();
+        $markThird = $('#markThird').val();
+        
+        if($markFirst =="" || $markSecond == "" || $markThird ==""){
+            alert("Vui lòng nhập đủ thông tin");
+        }else{
+            $.ajax({
+                type: "post",
+                url: "../process/process-add-mark.php",
+                data: {
+                    subjectID: $subjectID,
+                    studentID: $studentID,
+                    markFirst: $markFirst,
+                    markSecond: $markSecond,
+                    markThird: $markThird,
+                },
+                success: function (response) {
+                    if(response == "success"){
+                        alert("Thêm thành công");
+                        $('#contents').load("marks.php");
+                    }else{
+                        alert("Thêm thất bại");
+                    }
+                }
+            });
+        }
+
+    });
     })
 </script>
