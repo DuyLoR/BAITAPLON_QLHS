@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!empty($_SESSION['currentUser'])) {
+if (isset($_SESSION['currentUser'])) {
 ?>
 
     <!DOCTYPE html>
@@ -54,10 +54,17 @@ if (!empty($_SESSION['currentUser'])) {
                             <i class='bx bxs-school nav_icon'></i>
                             <span class="nav_name">Lớp học</span>
                         </a>
-                        <a href="#" class="nav_link" id="subjects">
-                            <i class='bx bx-book-open nav_icon'></i>
-                            <span class="nav_name">Môn học</span>
-                        </a>
+                        <!-- //? là admin thì mới có quyền chỉnh sửa -->
+                        <?php
+                        if ($_SESSION['currentLevel'] == 1) {
+                        ?>
+                            <a href="#" class="nav_link" id="subjects">
+                                <i class='bx bx-book-open nav_icon'></i>
+                                <span class="nav_name">Môn học</span>
+                            </a>
+                        <?php
+                        }
+                        ?>
                         <a href="#" class="nav_link" id="teachers">
                             <i class='bx bx-glasses nav_icon'></i>
                             <span class="nav_name">Giáo viên</span>
@@ -72,7 +79,7 @@ if (!empty($_SESSION['currentUser'])) {
                         </a>
                     </div>
                 </div>
-                <a href="#" class="nav_link" id="logout">
+                <a href="../process/process-logout.php" class="nav_link" id="logout">
                     <i class='bx bx-log-out nav_icon'></i>
                     <span class="nav_name">Đăng xuất</span>
                 </a>
@@ -80,7 +87,7 @@ if (!empty($_SESSION['currentUser'])) {
         </div>
         <!--Container Main start-->
         <div id="contents" class="height-100 bg-light">
-            <?php include 'classes.php'; ?>
+
         </div>
         <!--Container Main end-->
 
