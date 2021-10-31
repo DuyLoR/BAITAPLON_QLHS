@@ -36,6 +36,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     linkColor.forEach(l=> l.addEventListener('click', colorLink))
     
     // Đổi page
+    $("#contents").load('classes.php'); //Trang đầu tiên xuất hiện
+
     $("#dashboard").click(function() {
         $("#contents").load('dashboard.php');
     });
