@@ -23,7 +23,7 @@ session_start();
         </div>
 
         <div class="card-body">
-            <table class="table table-bordered" id="list">
+            <table class="table cell-border table-bordered" id="list">
                 <!-- <colgroup>
                     <col width="10%">
                     <col width="20%">
@@ -97,6 +97,9 @@ session_start();
 
 <script>
     $(document).ready(function() {
+        //? import thư viện data table
+        $('#list').dataTable()
+
         //? thêm lớp
         $('.newClass').click(function() {
             $('#contents').load("add-class.php")

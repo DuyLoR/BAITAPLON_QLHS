@@ -18,13 +18,12 @@ session_start();
     <div class="card card-outline card-primary">
         <div class="card-header">
             <div class="card-tools">
-                <a class="btn btn-block btn-sm btn-default btn-flat border-primary newTeacher"
-                    href="javascript:void(0)"><i class="fa fa-plus"></i>Thêm</a>
+                <a class="btn btn-block btn-sm btn-default btn-flat border-primary newTeacher" href="javascript:void(0)"><i class="fa fa-plus"></i>Thêm</a>
             </div>
         </div>
 
         <div class="card-body">
-            <table class="table table-bordered" id="list">
+            <table class="table cell-border table-bordered" id="list">
                 <!-- <colgroup>
                     <col width="5%">
                     <col width="10%">
@@ -51,7 +50,7 @@ session_start();
                         <?php
                         if ($_SESSION['currentLevel'] == 1) {
                         ?>
-                        <th class="text-center">Hành động</th>
+                            <th class="text-center">Hành động</th>
                         <?php
                         }
                         ?>
@@ -66,40 +65,40 @@ session_start();
                     $result = mysqli_query($conn, $sql);
                     //? xác thực
                     if (mysqli_num_rows($result) > 0) {
-                    $stt = 1;
-                    while ($row = mysqli_fetch_assoc($result)) { ?>
-                    <tr>
-                        <th class="text-center"><?php echo $stt++; ?></th>
-                        <td><?php echo $row['magv']; ?></td>
-                        <td><?php echo $row['tengv'] ?></td>
-                        <td><?php echo ($row['gioitinh'] == 1 ?"Nam":"Nữ"); ?></td>
-                        <td><?php echo $row['chucvu'] ?></td>
-                        <td><?php echo $row['sodt'] ?></td>
-                        <td><?php echo $row['email'] ?></td>
-                        <td><?php echo $row['diachi'] ?></td>
-                        <!-- session phân chia vai trò -->
-                        <?php
-                        if ($_SESSION['currentLevel'] == 1) {
-                        ?>
-                        <td class="text-center">
-                            <div class="btn-group">
-                                <a href="#" class="btn btn-primary btn-flat manage_class">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <button type="button" class="btn btn-danger btn-flat delete_class">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </td>
-                        <?php
-                            }
-                        ?>
-                        <!-- session phân chia vai trò -->
-                        <?php
+                        $stt = 1;
+                        while ($row = mysqli_fetch_assoc($result)) { ?>
+                            <tr>
+                                <th class="text-center"><?php echo $stt++; ?></th>
+                                <td><?php echo $row['magv']; ?></td>
+                                <td><?php echo $row['tengv'] ?></td>
+                                <td><?php echo ($row['gioitinh'] == 1 ? "Nam" : "Nữ"); ?></td>
+                                <td><?php echo $row['chucvu'] ?></td>
+                                <td><?php echo $row['sodt'] ?></td>
+                                <td><?php echo $row['email'] ?></td>
+                                <td><?php echo $row['diachi'] ?></td>
+                                <!-- session phân chia vai trò -->
+                                <?php
+                                if ($_SESSION['currentLevel'] == 1) {
+                                ?>
+                                    <td class="text-center">
+                                        <div class="btn-group">
+                                            <a href="#" class="btn btn-primary btn-flat manage_class">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <button type="button" class="btn btn-danger btn-flat delete_class">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                <?php
                                 }
-                            }
+                                ?>
+                                <!-- session phân chia vai trò -->
+                        <?php
+                        }
+                    }
                         ?>
-                    </tr>
+                            </tr>
 
 
                 </tbody>
@@ -109,9 +108,12 @@ session_start();
 </div>
 
 <script>
-$(document).ready(function() {
-    $('.newTeacher').click(function() {
-        $('#contents').load("add-teacher.php")
+    $(document).ready(function() {
+        //? import thư viện data table
+        $('#list').dataTable()
+
+        $('.newTeacher').click(function() {
+            $('#contents').load("add-teacher.php")
+        })
     })
-})
 </script>

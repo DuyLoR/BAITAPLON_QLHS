@@ -22,7 +22,7 @@ session_start();
         </div>
 
         <div class="card-body">
-            <table class="table table-bordered" id="list">
+            <table class="table cell-border table-bordered" id="list">
                 <!-- <colgroup>
                     <col width="10%">
                     <col width="15%">
@@ -94,6 +94,9 @@ session_start();
 
 <script>
     $(document).ready(function() {
+        //? import thư viện data table
+        $('#list').dataTable()
+
         $('.newSubject').click(function() {
             $('#contents').load("add-subject.php")
         })
