@@ -106,6 +106,12 @@ session_start();
             $('#contents').load("add-class.php")
         })
 
+        //? sửa lớp 
+        $('.editClass').click(function() {
+            $classID = $('#classID').val();
+            $('#contents').load("edit-class.php")
+        })
+
         //? xoá lớp 
         $('.deleteClass').click(function() {
             $id = $(this).attr('name'); //? bắt giá trị name của hàng
