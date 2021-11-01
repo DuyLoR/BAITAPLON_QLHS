@@ -72,7 +72,7 @@ session_start();
                                 ?>
                                     <td class="text-center">
                                         <div class="btn-group">
-                                            <button name="<?php echo $row['malop'];  ?>" class="btn btn-primary btn-flat editClass">
+                                            <button name="<?php echo $row['malop'].','.$row['tenlop'].','.$row['magv'];  ?>" class="btn btn-primary btn-flat editClass">
                                                 <i class="fas fa-edit"></i>
 
                                             </button>
@@ -106,11 +106,6 @@ session_start();
             $('#contents').load("add-class.php")
         })
 
-        //? sửa lớp 
-        $('.editClass').click(function() {
-            $classID = $('#classID').val();
-            $('#contents').load("edit-class.php")
-        })
 
         //? xoá lớp 
         $('.deleteClass').click(function() {
@@ -139,25 +134,11 @@ session_start();
 
         //? sửa lớp 
         $('.editClass').click(function() {
-            $id = $(this).attr('name'); //? bắt giá trị name của hàng
-
-            //? nếu đồng ý
-            $.ajax({
-                type: "post",
-                url: "../process/process-edit-class.php",
-                data: {
-                    classId: $id,
-                },
-                success: function(response) {
-                    if (response == 'success') {
-                        alert("Xoá thành công!")
-                        location.reload()
-                    } else if (response == 'error') {
-                        alert("Xoá thất bại")
-                    }
-                }
-            });
-
+        $id = $(this).attr('name'); //? bắt giá trị name của hàng
+        $classID = $id.split(",")[0];
+        $className = $id.split(",")[1];
+        $teacherID = $id.split(",")[2];
+            $('#contents').load("edit-class.php")
 
         });
 

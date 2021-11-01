@@ -9,26 +9,36 @@
                         <div class="col-md-6">
                             <div class="form-group text-dark">
                                 <div class="form-group">
-                                    <label for="" class="control-label p-1 mt-1">Mã Lớp học#</label>
+                                    <!-- gán dữ liệu từ js vào input -->
+                                    <script>
+                                        $("#classID").val($classID);
+                                        $("#className").val($className);
+                                        $("#teacherID").val($teacherID);
+                                    </script>
+
+                                    <!-- Lấy dữ liệu từ database -->
+                                    <?php
+                                    //? mở kết nối
+                                    include '../config/config.php';
+                                    
+                                    ?>
+                                    <label for=""  class="control-label p-1 mt-1">Mã Lớp học#</label>
                                     <input type="text" class="form-control form-control-sm" id="classID" value=""
-                                        required>
+                                        required disabled>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
                                 <div class="form-group">
-                                    <label for="" class="control-label p-1 mt-1">Tên lớp học</label>
+                                    <label for=""  class="control-label p-1 mt-1">Tên lớp học</label>
                                     <input type="text" class="form-control form-control-sm" id="className" value=""
                                         required>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
                                 <div class="form-group">
-                                    <label for="" class="control-label p-1 mt-1">Mã giáo viên chủ nhiệm</label>
+                                    <label for=""  class="control-label p-1 mt-1">Mã giáo viên chủ nhiệm</label>
                                     <select id="teacherID" id="" class="custom-select custom-select-sm" required>
-                                        <!-- Lấy dữ liệu từ database -->
-                                        <?php
-                                    //? mở kết nối
-                                    include '../config/config.php';
+                                    <?php
                                     $sql = "SELECT * FROM giaovien";
                                     $result = mysqli_query($conn, $sql);
                                     //? xác thực
@@ -79,7 +89,7 @@ $(document).ready(function() {
         }else{
             $.ajax({
                 type: "post",
-                url: "../process/process-add-class.php",
+                url: "../process/process-edit-class.php",
                 data: {
                     classID: $classID,
                     className: $className,
@@ -87,10 +97,10 @@ $(document).ready(function() {
                 },
                 success: function (response) {
                     if(response == "success"){
-                        alert("Thêm thành công");
+                        alert("sửa thành công");
                         $('#contents').load("classes.php");
                     }else{
-                        alert("Thêm thất bại");
+                        alert("sửa thất bại");
                     }
                 }
             });
