@@ -21,7 +21,7 @@ if (isset($_POST['do_login'])) { //phải bấm đăng nhập thì mới vào đ
         if ($password == $row['matkhau']) {
             $_SESSION['currentUser'] = $userName;
             $_SESSION['currentLevel'] = $level;
-            $_SESSION['currentID'] = $id;
+            $_SESSION['currentId'] = $id;
 
             if ($level == 1) { //Kiểm tra user level
                 echo "admin";  //admin
