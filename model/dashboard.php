@@ -1,6 +1,7 @@
 <?php
-    include 'header.php'
+session_start();
 ?>
-<?php
-    include 'footer.php';
-?>
+<div class="main-cards">
+    <div class="card"></div>
+
+</div>

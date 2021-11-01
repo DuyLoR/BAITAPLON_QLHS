@@ -14,6 +14,6 @@ if (isset($_POST['teacherId'])) {
     } else {
         echo "error";
     }
-    //? đóng kết nối
+    //? đóng kết nối 
     mysqli_close($conn);
 }
