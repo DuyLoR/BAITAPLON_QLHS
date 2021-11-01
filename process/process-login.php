@@ -14,9 +14,11 @@ if (isset($_POST['do_login'])) { //phải bấm đăng nhập thì mới vào đ
         // $pass_hash = $row['user_pass'];
         $level = $row['capdo'];
         $id;
-        if ($row['mahs'] == "NULL") {
+        if ($row['mahs'] == NULL) {
             $id = $row['magv'];
-        } else $id = $row['mahs'];
+        } else if ($row['magv'] == NULL) {
+            $id = $row['mahs'];
+        }
         // if (password_verify($password, $pass_hash))
         if ($password == $row['matkhau']) {
             $_SESSION['currentUser'] = $userName;
