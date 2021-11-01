@@ -118,7 +118,7 @@ session_start();
             $('#contents').load("add-student.php")
         })
 
-        //? xoá lớp 
+        //? xoá học sinh
         $('.deleteStudent').click(function() {
             $id = $(this).attr('name'); //? bắt giá trị name của hàng
             if (confirm("Bạn có muốn xoá học sinh '" + $id + "' không?")) {
@@ -132,7 +132,7 @@ session_start();
                     success: function(response) {
                         if (response == 'success') {
                             alert("Xoá thành công!")
-                            location.reload()
+                            $('#contents').load("students.php")
                         } else if (response == 'error') {
                             alert("Xoá thất bại")
                         }
