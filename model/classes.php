@@ -120,7 +120,7 @@ session_start();
                             alert("Xoá thành công!")
                             location.reload()
                         } else if (response == 'error') {
-                            alert("Xoá thất bại")
+                            alert("Xoá thất bại") 
                         }
                     }
                 });
