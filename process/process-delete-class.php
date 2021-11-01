@@ -15,5 +15,5 @@ if (isset($_POST['classId'])) {
         echo "error";
     }
     //? đóng kết nối
-    mysqli_close($conn);
+    mysqli_close($conn); 
 }

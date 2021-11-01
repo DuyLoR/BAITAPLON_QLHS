@@ -120,7 +120,7 @@ session_start();
          //? xoá lớp 
          $('.deleteTeacher').click(function() {
             $id = $(this).attr('name'); //? bắt giá trị name của hàng
-            if (confirm("Bạn có muốn xoá lớp '" + $id + "' không?")) {
+            if (confirm("Bạn có muốn xoá giáo viên '" + $id + "' không?")) {
                 //? nếu đồng ý
                 $.ajax({
                     type: "post",
