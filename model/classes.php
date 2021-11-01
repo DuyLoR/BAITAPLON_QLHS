@@ -72,10 +72,15 @@ session_start();
                                 ?>
                                     <td class="text-center">
                                         <div class="btn-group">
-                                            <a href="#" class="btn btn-primary btn-flat manage_class">
+                                            <button name="<?php echo $row['malop'];  ?>" class="btn btn-primary btn-flat editClass">
                                                 <i class="fas fa-edit"></i>
+<<<<<<< HEAD
                                             </a>
                                             <button name="<?php echo $row['malop'] ?>" type="button" class="btn btn-danger btn-flat deleteClass">
+=======
+                                            </button>
+                                            <button name="<?php echo $row['malop'];  ?>" class="btn btn-danger btn-flat deleteClass">
+>>>>>>> master
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </div>
@@ -100,7 +105,10 @@ session_start();
         //? import thư viện data table
         $('#list').dataTable()
 
+<<<<<<< HEAD
         //? thêm lớp
+=======
+>>>>>>> master
         $('.newClass').click(function() {
             $('#contents').load("add-class.php")
         })
@@ -121,12 +129,47 @@ session_start();
                             alert("Xoá thành công!")
                             location.reload()
                         } else if (response == 'error') {
+<<<<<<< HEAD
                             alert("Xoá thất bại")
+=======
+                            alert("Xoá thất bại") 
+>>>>>>> master
                         }
                     }
                 });
             } else return false;
 
         });
+<<<<<<< HEAD
+=======
+
+
+        //? sửa lớp 
+        $('.editClass').click(function() {
+            $id = $(this).attr('name'); //? bắt giá trị name của hàng
+            
+                //? nếu đồng ý
+                $.ajax({
+                    type: "post",
+                    url: "../process/process-edit-class.php",
+                    data: {
+                        classId: $id,
+                    },
+                    success: function(response) {
+                        if (response == 'success') {
+                            alert("Xoá thành công!")
+                            location.reload()
+                        } else if (response == 'error') {
+                            alert("Xoá thất bại")
+                        }
+                    }
+                });
+            
+
+        });
+
+
+
+>>>>>>> master
     })
 </script>

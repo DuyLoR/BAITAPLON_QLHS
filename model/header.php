@@ -13,17 +13,19 @@
     <title>Quản lý học sinh</title>
 </head>
 <body>
-    <header>
-    <section class="Navbar">
-        <div class="Container">
-            <div class="nav-logo">
-               <a href="/BAITAPLON_QLHS/model/home.php" class="logo qly-logo">PDLearn</a>
+    <div class="container">
+        <nav class="navbar">
+            <div class="nav-icon" onclick="toggleSidebar()">
+                <i class="fa fa-bars"></i>
             </div>
-            <div class="icon-admin">
-                <div class="icon-admin-item">
-                    <a href="/BAITAPLON_QLHS/model/admin-index.php" class="icon-qly-item-link"></a>
-                </div>
+            <div class="navbar-left">
+                <a href="/BAITAPLON_QLHS/model/admin-index.php">Admin</a> 
             </div>
-        </div>
-    </section>
-    </header>
+            <div class="navbar-right">
+                <a href="#">
+                    <img src="" alt="">
+                </a>
+            </div>
+        </nav>
+        
+    </div>

@@ -32,8 +32,7 @@
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Địa chỉ</label>
-                                    <textarea id="address" id="address" cols="30" rows="4"
-                                        class="form-control"></textarea>
+                                    <textarea id="studentAddress" cols="30" rows="4" class="form-control"></textarea>
                                 </div>
                             </div>
 
@@ -44,7 +43,7 @@
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Mã lớp</label>
-                                    <select id="teacherID" id="" class="custom-select custom-select-sm" required>
+                                    <select id="classID" id="" class="custom-select custom-select-sm" required>
                                         <!-- Lấy dữ liệu từ database -->
                                         <?php
                                     //? mở kết nối
@@ -65,14 +64,14 @@
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">khóa học</label>
-                                    <input type="text" class="form-control form-control-sm" id="student_code" value=""
+                                    <input type="text" class="form-control form-control-sm" id="course" value=""
                                         required>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Tên phụ huynh</label>
-                                    <input type="text" class="form-control form-control-sm" id="parnetName" value=""
+                                    <input type="text" class="form-control form-control-sm" id="parentName" value=""
                                         required>
                                 </div>
                             </div>
@@ -94,7 +93,7 @@
                     </div>
                     <div class="card-footer ">
                         <div class="d-flex w-100 justify-content-center align-items-center">
-                            <button class="btn btn-success  mx-2" type="submit" name="btnSubmit"
+                            <button class="btn btn-success  mx-2" type="submit" id="btnSubmit"
                                 id="btnSubmit">Lưu</button>
                             <a class="btn btn-success mx-2 backStudent" href="#">Quay lại</a>
                         </div>
@@ -111,5 +110,47 @@ $(document).ready(function() {
     $('.backStudent').click(function() {
         $('#contents').load("students.php")
     })
+
+    $('#btnSubmit').click(function() {
+        $studentID = $('#studentID').val();
+        $studentName = $('#studentName').val();
+        $studentGender = $('#studentGender').val();
+        $classID = $('#classID').val();
+        $studentAddress = $('#studentAddress').val();
+        $course = $('#course').val();
+        $parentName = $('#parentName').val();
+        $parentPhone = $('#parentPhone').val();
+        $parentEmail = $('#parentEmail').val();
+
+        if ($studentID == "" || $studentName == "" || $studentAddress == "" || $course == "" ||
+            $parentName == "" || $parentPhone == "" || $parentEmail == "") {
+            alert("Vui lòng nhập đủ thông tin");
+        } else {
+            $.ajax({
+                type: "post",
+                url: "../process/process-add-student.php",
+                data: {
+                    studentName: $studentName,
+                    studentID: $studentID,
+                    studentGender: $studentGender,
+                    classID: $classID,
+                    studentAddress: $studentAddress,
+                    course: $course,
+                    parentName: $parentName,
+                    parentPhone: $parentPhone,
+                    parentEmail: $parentEmail,
+                },
+                success: function(response) {
+                    if (response == "success") {
+                        alert("Thêm thành công");
+                        $('#contents').load("students.php");
+                    } else {
+                        alert("Thêm thất bại");
+                    }
+                }
+            });
+        }
+
+    });
 })
 </script>

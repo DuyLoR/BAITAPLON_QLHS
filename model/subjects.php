@@ -72,11 +72,12 @@ session_start();
                                             <a href="#" class="btn btn-primary btn-flat manage_class">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <button type="button" class="btn btn-danger btn-flat delete_class">
+                                            <button name="<?php echo $row['mamh'];  ?>" class="btn btn-danger btn-flat deleteSubject">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </div>
                                     </td>
+                                    
                                 <?php
                                 }
                                 ?>
@@ -100,5 +101,29 @@ session_start();
         $('.newSubject').click(function() {
             $('#contents').load("add-subject.php")
         })
+        //? xoá môn học
+        $('.deleteSubject').click(function() {
+            $id = $(this).attr('name'); //? bắt giá trị name của hàng
+            if (confirm("Bạn có muốn xoá môn học '" + $id + "' không?")) {
+                //? nếu đồng ý
+                $.ajax({
+                    type: "post",
+                    url: "../process/process-delete-subject.php",
+                    data: {
+                        subjectId: $id,
+                    },
+                    success: function(response) {
+                        if (response == 'success') {
+                            alert("Xoá thành công!")
+                            location.reload()
+                        } else if (response == 'error') {
+                            alert("Xoá thất bại")
+                        }
+                    }
+                });
+            } else return false;
+
+        });
     })
+    
 </script>
