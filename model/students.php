@@ -89,7 +89,7 @@ session_start();
                                             <a href="#" class="btn btn-primary btn-flat manage_class">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <button type="button" class="btn btn-danger btn-flat delete_class">
+                                            <button name="<?php echo $row['mahs'];  ?>" class="btn btn-danger btn-flat deleteStudent">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </div>

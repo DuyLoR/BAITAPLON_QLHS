@@ -1,12 +1,12 @@
 <?php
-if (isset($_POST['teacherId'])) {
-    $classId = $_POST['teacherId'];
+if (isset($_POST['studentId'])) {
+    $classId = $_POST['studentId'];
 
     //?mở kết nối
     include '../config/config.php';
 
     //? set câu lệnh truy vấn
-    $sql = "DELETE FROM giaovien WHERE magv='$teacherId'";
+    $sql = "DELETE FROM hocsinh WHERE magv='$studentId'";
 
     //? kiểm tra và thực thi câu lệnh
     if (mysqli_query($conn, $sql)) {
@@ -14,6 +14,6 @@ if (isset($_POST['teacherId'])) {
     } else {
         echo "error";
     }
-    //? đóng kết nối 
+    //? đóng kết nối
     mysqli_close($conn);
 }

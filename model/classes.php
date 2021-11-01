@@ -72,9 +72,9 @@ session_start();
                                 ?>
                                     <td class="text-center">
                                         <div class="btn-group">
-                                            <a href="#" class="btn btn-primary btn-flat manage_class">
+                                            <button name="<?php echo $row['malop'];  ?>" class="btn btn-primary btn-flat editClass">
                                                 <i class="fas fa-edit"></i>
-                                            </a>
+                                            </button>
                                             <button name="<?php echo $row['malop'];  ?>" class="btn btn-danger btn-flat deleteClass">
                                                 <i class="fas fa-trash"></i>
                                             </button>
@@ -127,5 +127,33 @@ session_start();
             } else return false;
 
         });
+
+
+        //? sửa lớp 
+        $('.editClass').click(function() {
+            $id = $(this).attr('name'); //? bắt giá trị name của hàng
+            
+                //? nếu đồng ý
+                $.ajax({
+                    type: "post",
+                    url: "../process/process-edit-class.php",
+                    data: {
+                        classId: $id,
+                    },
+                    success: function(response) {
+                        if (response == 'success') {
+                            alert("Xoá thành công!")
+                            location.reload()
+                        } else if (response == 'error') {
+                            alert("Xoá thất bại")
+                        }
+                    }
+                });
+            
+
+        });
+
+
+
     })
 </script>

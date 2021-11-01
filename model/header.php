@@ -19,7 +19,7 @@
                 <i class="fa fa-bars"></i>
             </div>
             <div class="navbar-left">
-                <a href="/BAITAPLON_QLHS/model/admin-index.php">Admin</a>
+                <a href="/BAITAPLON_QLHS/model/admin-index.php">Admin</a> 
             </div>
             <div class="navbar-right">
                 <a href="#">
