@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST['teacherId'])) {
-    $classId = $_POST['teacherId'];
+    $teacherId = $_POST['teacherId'];
 
     //?mở kết nối
     include '../config/config.php';
