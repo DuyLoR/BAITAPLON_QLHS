@@ -1,12 +1,12 @@
 <?php
-if (isset($_POST['subjectId'])) {
-    $classId = $_POST['subjectId'];
+if (isset($_POST['studentId'])) {
+    $classId = $_POST['studentId'];
 
     //?mở kết nối
     include '../config/config.php';
 
     //? set câu lệnh truy vấn
-    $sql = "DELETE FROM monhoc WHERE malop='$subjectgtiId'";
+    $sql = "DELETE FROM hocsinh WHERE magv='$studentId'";
 
     //? kiểm tra và thực thi câu lệnh
     if (mysqli_query($conn, $sql)) {
