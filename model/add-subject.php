@@ -21,6 +21,27 @@
                                         required>
                                 </div>
                             </div>
+                            <div class="form-group text-dark">
+                                <div class="form-group">
+                                    <label for="" class="control-label p-1 mt-1">Mã giáo viên</label>
+                                    <select id="teacherID" id="" class="custom-select custom-select-sm" required>
+                                        <!-- Lấy dữ liệu từ database -->
+                                        <?php
+                                    //? mở kết nối
+                                    include '../config/config.php';
+                                    $sql = "SELECT * FROM giaovien";
+                                    $result = mysqli_query($conn, $sql);
+                                    //? xác thực
+                                    if (mysqli_num_rows($result) > 0) {
+                                        while ($row = mysqli_fetch_assoc($result)) { ?>
+                                        <option><?php echo $row['magv']; ?></option>
+                                        <?php
+                                        }
+                                    }
+                                    ?>
+                                        </select>
+                                </div>
+                            </div>
 
                             <div class="form-group text-dark">
                                 <div class="form-group">
@@ -47,5 +68,36 @@ $(document).ready(function() {
     $('.backSubject').click(function() {
         $('#contents').load("subjects.php")
     })
+
+    $('#btnSubmit').click(function() {
+        $subjectID = $('#subjectID').val();
+        $subjectName = $('#subjectName').val();
+        $subjectPrice = $('#subjectPrice').val();
+        $teacherID = $('#teacherID').val();
+
+        if ($subjectID == "" || $subjectName == "" || $subjectPrice == "" || $teacherID == "") {
+            alert("Vui lòng nhập đủ thông tin");
+        } else {
+            $.ajax({
+                type: "post",
+                url: "../process/process-add-subject.php",
+                data: {
+                    subjectName: $subjectName,
+                    subjectID: $subjectID,
+                    subjectPrice: $subjectPrice,
+                    teacherID: $teacherID,
+                },
+                success: function(response) {
+                    if (response == "success") {
+                        alert("Thêm thành công");
+                        $('#contents').load("subjects.php");
+                    } else {
+                        alert("Thêm thất bại");
+                    }
+                }
+            });
+        }
+
+    });
 })
 </script>

@@ -50,7 +50,8 @@
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Điểm miệng</label>
-                                    <input type="number" class="form-control form-control-sm" id="markFirst" value="" required>
+                                    <input type="number" class="form-control form-control-sm" id="markFirst" value=""
+                                        required>
                                 </div>
                             </div>
 
@@ -59,13 +60,15 @@
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Điểm giữa kỳ</label>
-                                    <input type="number" class="form-control form-control-sm" id="markSecond" value="" required>
+                                    <input type="number" class="form-control form-control-sm" id="markSecond" value=""
+                                        required>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Điểm cuối kỳ</label>
-                                    <input type="number" class="form-control form-control-sm" id="markThird" value="" required>
+                                    <input type="number" class="form-control form-control-sm" id="markThird" value=""
+                                        required>
                                 </div>
                             </div>
                         </div>
@@ -83,21 +86,21 @@
     </div>
 </div>
 <script>
-    $(document).ready(function() {
-        $('.backResult').click(function() {
-            $('#contents').load("marks.php")
-        })
+$(document).ready(function() {
+    $('.backResult').click(function() {
+        $('#contents').load("marks.php")
+    })
 
-        $('#btnSubmit').click(function () { 
+    $('#btnSubmit').click(function() {
         $subjectID = $('#subjectID').val();
         $studentID = $('#studentID').val();
         $markFirst = $('#markFirst').val();
         $markSecond = $('#markSecond').val();
         $markThird = $('#markThird').val();
-        
-        if($markFirst =="" || $markSecond == "" || $markThird ==""){
+
+        if ($markFirst == "" || $markSecond == "" || $markThird == "") {
             alert("Vui lòng nhập đủ thông tin");
-        }else{
+        } else {
             $.ajax({
                 type: "post",
                 url: "../process/process-add-mark.php",
@@ -108,11 +111,11 @@
                     markSecond: $markSecond,
                     markThird: $markThird,
                 },
-                success: function (response) {
-                    if(response == "success"){
+                success: function(response) {
+                    if (response == "success") {
                         alert("Thêm thành công");
                         $('#contents').load("marks.php");
-                    }else{
+                    } else {
                         alert("Thêm thất bại");
                     }
                 }
@@ -120,5 +123,5 @@
         }
 
     });
-    })
+})
 </script>
