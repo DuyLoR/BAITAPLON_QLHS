@@ -145,3 +145,6 @@ session_start();
 
     })
 </script>
+<?php
+    include 'footer.php';
+?>

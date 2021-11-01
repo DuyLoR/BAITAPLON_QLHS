@@ -123,7 +123,7 @@ session_start();
                 //? nếu đồng ý
                 $.ajax({
                     type: "post",
-                    url: "../process/process-delete-teachers.php",
+                    url: "../process/process-delete-teacher.php",
                     data: {
                         teacherId: $id,
                     },
@@ -141,3 +141,6 @@ session_start();
         });
     })
 </script>
+<?php
+    include 'footer.php';
+?>
