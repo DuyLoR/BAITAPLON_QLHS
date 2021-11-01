@@ -74,14 +74,11 @@ session_start();
                                         <div class="btn-group">
                                             <button name="<?php echo $row['malop'];  ?>" class="btn btn-primary btn-flat editClass">
                                                 <i class="fas fa-edit"></i>
-                                                <<<<<<< HEAD </a>
-                                                    <button name="<?php echo $row['malop'] ?>" type="button" class="btn btn-danger btn-flat deleteClass">
-                                                        =======
-                                                    </button>
-                                                    <button name="<?php echo $row['malop'];  ?>" class="btn btn-danger btn-flat deleteClass">
-                                                        >>>>>>> master
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
+
+                                            </button>
+                                            <button name="<?php echo $row['malop'];  ?>" class="btn btn-danger btn-flat deleteClass">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
                                         </div>
                                     </td>
                                 <?php
