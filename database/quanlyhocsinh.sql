@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2021 at 12:23 PM
+-- Generation Time: Nov 01, 2021 at 03:16 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -28,20 +28,21 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `dangnhap` (
-  `id` int(11) NOT NULL,
   `tendangnhap` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `matkhau` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `capdo` tinyint(2) NOT NULL DEFAULT 0
+  `capdo` tinyint(2) NOT NULL DEFAULT 0,
+  `mahs` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `magv` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `dangnhap`
 --
 
-INSERT INTO `dangnhap` (`id`, `tendangnhap`, `matkhau`, `capdo`) VALUES
-(1, 'admin', 'admin', 1),
-(2, 'giaovien', 'giaovien', 2),
-(3, 'hocsinh', 'hocsinh', 0);
+INSERT INTO `dangnhap` (`tendangnhap`, `matkhau`, `capdo`, `mahs`, `magv`) VALUES
+('admin', 'admin', 1, NULL, NULL),
+('giaovien', 'giaovien', 2, NULL, 'GV00'),
+('hocsinh', 'hocsinh', 0, 'HS00', NULL);
 
 -- --------------------------------------------------------
 
@@ -170,7 +171,9 @@ INSERT INTO `monhoc` (`mamh`, `tenmh`, `magv`, `sotiet`) VALUES
 -- Indexes for table `dangnhap`
 --
 ALTER TABLE `dangnhap`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`tendangnhap`),
+  ADD KEY `mahs` (`mahs`),
+  ADD KEY `magv` (`magv`);
 
 --
 -- Indexes for table `diem`
@@ -207,18 +210,15 @@ ALTER TABLE `monhoc`
   ADD KEY `magv` (`magv`);
 
 --
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `dangnhap`
---
-ALTER TABLE `dangnhap`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `dangnhap`
+--
+ALTER TABLE `dangnhap`
+  ADD CONSTRAINT `dangnhap_ibfk_1` FOREIGN KEY (`mahs`) REFERENCES `hocsinh` (`mahs`),
+  ADD CONSTRAINT `dangnhap_ibfk_2` FOREIGN KEY (`magv`) REFERENCES `giaovien` (`magv`);
 
 --
 -- Constraints for table `diem`
