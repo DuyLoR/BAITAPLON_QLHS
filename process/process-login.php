@@ -13,10 +13,15 @@ if (isset($_POST['do_login'])) { //phải bấm đăng nhập thì mới vào đ
         $row = mysqli_fetch_assoc($result);
         // $pass_hash = $row['user_pass'];
         $level = $row['capdo'];
+        $id;
+        if ($row['mahs'] == "NULL") {
+            $id = $row['magv'];
+        } else $id = $row['mahs'];
         // if (password_verify($password, $pass_hash))
         if ($password == $row['matkhau']) {
             $_SESSION['currentUser'] = $userName;
             $_SESSION['currentLevel'] = $level;
+            $_SESSION['currentID'] = $id;
 
             if ($level == 1) { //Kiểm tra user level
                 echo "admin";  //admin
