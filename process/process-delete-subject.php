@@ -6,7 +6,7 @@ if (isset($_POST['subjectId'])) {
     include '../config/config.php';
 
     //? set câu lệnh truy vấn
-    $sql = "DELETE FROM monhoc WHERE malop='$subjectiId'";
+    $sql = "DELETE FROM monhoc WHERE mamh='$subjectId'";
 
     //? kiểm tra và thực thi câu lệnh
     if (mysqli_query($conn, $sql)) {

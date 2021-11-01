@@ -117,5 +117,30 @@ session_start();
         $('.newStudent').click(function() {
             $('#contents').load("add-student.php")
         })
+
+        //? xoá lớp 
+        $('.deleteStudent').click(function() {
+            $id = $(this).attr('name'); //? bắt giá trị name của hàng
+            if (confirm("Bạn có muốn xoá học sinh '" + $id + "' không?")) {
+                //? nếu đồng ý
+                $.ajax({
+                    type: "post",
+                    url: "../process/process-delete-student.php",
+                    data: {
+                        studentId: $id,
+                    },
+                    success: function(response) {
+                        if (response == 'success') {
+                            alert("Xoá thành công!")
+                            location.reload()
+                        } else if (response == 'error') {
+                            alert("Xoá thất bại") 
+                        }
+                    }
+                });
+            } else return false;
+
+        });
+
     })
 </script>

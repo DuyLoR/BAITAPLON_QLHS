@@ -6,7 +6,7 @@ if (isset($_POST['studentId'])) {
     include '../config/config.php';
 
     //? set câu lệnh truy vấn
-    $sql = "DELETE FROM hocsinh WHERE magv='$studentId'";
+    $sql = "DELETE FROM hocsinh WHERE mahs='$studentId'";
 
     //? kiểm tra và thực thi câu lệnh
     if (mysqli_query($conn, $sql)) {
