@@ -85,11 +85,7 @@ session_start();
                                             <a href="#" class="btn btn-primary btn-flat manage_class">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-<<<<<<< HEAD
-                                            <button type="button" class="btn btn-danger btn-flat delete_class">
-=======
                                             <button name="<?php echo $row['magv'];  ?>" class="btn btn-danger btn-flat deleteTeacher">
->>>>>>> master
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </div>
@@ -119,12 +115,9 @@ session_start();
         $('.newTeacher').click(function() {
             $('#contents').load("add-teacher.php")
         })
-<<<<<<< HEAD
-=======
 
-
-         //? xoá lớp 
-         $('.deleteTeacher').click(function() {
+        //? xoá lớp 
+        $('.deleteTeacher').click(function() {
             $id = $(this).attr('name'); //? bắt giá trị name của hàng
             if (confirm("Bạn có muốn xoá giáo viên '" + $id + "' không?")) {
                 //? nếu đồng ý
@@ -146,6 +139,5 @@ session_start();
             } else return false;
 
         });
->>>>>>> master
     })
 </script>

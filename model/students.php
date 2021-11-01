@@ -89,11 +89,7 @@ session_start();
                                             <a href="#" class="btn btn-primary btn-flat manage_class">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-<<<<<<< HEAD
-                                            <button type="button" class="btn btn-danger btn-flat delete_class">
-=======
                                             <button name="<?php echo $row['mahs'];  ?>" class="btn btn-danger btn-flat deleteStudent">
->>>>>>> master
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </div>
@@ -121,8 +117,6 @@ session_start();
         $('.newStudent').click(function() {
             $('#contents').load("add-student.php")
         })
-<<<<<<< HEAD
-=======
 
         //? xoá lớp 
         $('.deleteStudent').click(function() {
@@ -140,7 +134,7 @@ session_start();
                             alert("Xoá thành công!")
                             location.reload()
                         } else if (response == 'error') {
-                            alert("Xoá thất bại") 
+                            alert("Xoá thất bại")
                         }
                     }
                 });
@@ -148,6 +142,6 @@ session_start();
 
         });
 
->>>>>>> master
+
     })
 </script>
