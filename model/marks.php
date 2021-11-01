@@ -18,7 +18,7 @@ session_start();
     <div class="card card-outline card-primary">
         <div class="card-header">
             <div class="card-tools">
-                <a class="btn btn-block btn-sm btn-default btn-flat border-primary newResult" href="javascript:void(0)"><i class="fa fa-plus"></i>Thêm</a>
+                <a class="btn btn-block btn-sm btn-default btn-flat border-primary newMark" href="javascript:void(0)"><i class="fa fa-plus"></i>Thêm</a>
             </div>
         </div>
 
@@ -84,7 +84,7 @@ session_start();
                                             <a href="#" class="btn btn-primary btn-flat manage_class">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <button name="<?php echo $row['mahs'];  ?>" class="btn btn-danger btn-flat deleteMark">
+                                            <button id="<?php echo $row['mamh'];  ?>" name="<?php echo $row['mahs'];  ?>" class="btn btn-danger btn-flat deleteMark">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </div>
@@ -109,8 +109,35 @@ session_start();
         //? import thư viện data table
         $('#list').dataTable()
 
-        $('.newResult').click(function() {
+        //? thêm điểm
+        $('.newMark').click(function() {
             $('#contents').load("add-mark.php")
         })
+
+        //? xoá điểm
+        $('.deleteMark').click(function() {
+            $studentId = $(this).attr('name'); //? bắt giá trị name của hàng lấy ra mã hs
+            $subjectId = $(this).attr('id'); //? bắt giá trị id của hàng lấy ra mã mh
+            if (confirm("Bạn có muốn điểm môn '" + $subjectId + "' của học sinh '" + $studentId + "' không?")) {
+                //? nếu đồng ý
+                $.ajax({
+                    type: "post",
+                    url: "../process/process-delete-mark.php",
+                    data: {
+                        studentId: $studentId,
+                        subjectId: $subjectId
+                    },
+                    success: function(response) {
+                        if (response == 'success') {
+                            alert("Xoá thành công!")
+                            $('#contents').load("marks.php")
+                        } else if (response == 'error') {
+                            alert("Xoá thất bại")
+                        }
+                    }
+                });
+            } else return false;
+
+        });
     })
 </script>

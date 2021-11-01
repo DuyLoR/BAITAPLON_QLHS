@@ -77,7 +77,7 @@ session_start();
                                             </button>
                                         </div>
                                     </td>
-                                    
+
                                 <?php
                                 }
                                 ?>
@@ -115,7 +115,7 @@ session_start();
                     success: function(response) {
                         if (response == 'success') {
                             alert("Xoá thành công!")
-                            location.reload()
+                            $('#contents').load("subjects.php")
                         } else if (response == 'error') {
                             alert("Xoá thất bại")
                         }
@@ -125,5 +125,4 @@ session_start();
 
         });
     })
-    
 </script>

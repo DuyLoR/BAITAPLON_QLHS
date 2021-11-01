@@ -49,7 +49,7 @@
                 } else {
                     $.ajax({
                         url: "../process/process-login.php",
-                        method: "POST",
+                        type: "POST",
                         data: {
                             do_login: "do_login",
                             userName: $userName,
