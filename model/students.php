@@ -118,34 +118,6 @@ session_start();
             $('#contents').load("add-student.php")
         })
 
-        // Sửa học sinh
-
-        $('.editStudent').click(function() {
-            $id = $(this).attr('name'); //? bắt giá trị name của hàng
-
-            //? sửa học sính
-            $('.editStudent').click(function() {
-                $id = $(this).attr('name'); //? bắt giá trị name của hàng
-                $studentId = $id.split(",")[0];
-                $studentName = $id.split(",")[1];
-                $classId = $id.split(",")[2];
-                $gender = $id.split(",")[3];
-                $parentName = $id.split(",")[4];
-                $address = $id.split(",")[5];
-                $year = $id.split(",")[6];
-                $parentPhone = $id.split(",")[7];
-                $parentEmail = $id.split(",")[8];
-
-
-
-                $('#contents').load("edit-student.php")
-
-            });
-
-
-            $('#contents').load("edit-student.php")
-        })
-
         //? xoá học sinh
         $('.deleteStudent').click(function() {
             $id = $(this).attr('name'); //? bắt giá trị name của hàng
@@ -167,6 +139,25 @@ session_start();
                     }
                 });
             } else return false;
+
+        });
+
+        //? sửa học sính
+        $('.editStudent').click(function() {
+            $id = $(this).attr('name'); //? bắt giá trị name của hàng
+            $studentId = $id.split(",")[0];
+            $studentName = $id.split(",")[1];
+            $classId = $id.split(",")[2];
+            $gender = $id.split(",")[3];
+            $parentName = $id.split(",")[4];
+            $address = $id.split(",")[5];
+            $year = $id.split(",")[6];
+            $parentPhone = $id.split(",")[7];
+            $parentEmail = $id.split(",")[8];
+
+
+
+            $('#contents').load("edit-student.php")
 
         });
 
