@@ -10,29 +10,50 @@
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Mã học sinh#</label>
-                                    <input type="text" class="form-control form-control-sm" id="studentID" value=""
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="studentID" value="" required>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Họ và tên</label>
-                                    <input type="text" class="form-control form-control-sm" id="studentName" value=""
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="studentName" value="" required>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="" class="control-label p-1 mt-1">Giới tính</label>
-                                <select id="studentGender" id="" class="custom-select custom-select-sm" required>
-                                    <option>Nam</option>
-                                    <option>Nữ</option>
+                                <select id="studentGender" id="" class="form-select form-select-sm" required>
+                                    <option value="1">Nam</option>
+                                    <option value="0">Nữ</option>
                                 </select>
                             </div>
+
+
+                            <div class="form-group text-dark">
+                                <div class="form-group">
+                                    <label for="" class="control-label p-1 mt-1">Tên lớp</label>
+                                    <select id="classID" id="" class="form-select form-select-sm" required>
+                                        <!-- Lấy dữ liệu từ database -->
+                                        <?php
+                                        //? mở kết nối
+                                        include '../config/config.php';
+                                        $sql = "SELECT * FROM lop";
+                                        $result = mysqli_query($conn, $sql);
+                                        //? xác thực
+                                        if (mysqli_num_rows($result) > 0) {
+                                            while ($row = mysqli_fetch_assoc($result)) {
+                                                echo '<option value="' . $row['malop'] . '">' . $row['tenlop'] . '</option>';
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Địa chỉ</label>
-                                    <textarea id="studentAddress" cols="30" rows="4" class="form-control"></textarea>
+                                    <input id="studentAddress" class="form-control"></input>
                                 </div>
                             </div>
 
@@ -40,62 +61,37 @@
                         </div>
                         <div class="col-md-6">
 
+
                             <div class="form-group text-dark">
                                 <div class="form-group">
-                                    <label for="" class="control-label p-1 mt-1">Mã lớp</label>
-                                    <select id="classID" id="" class="custom-select custom-select-sm" required>
-                                        <!-- Lấy dữ liệu từ database -->
-                                        <?php
-                                    //? mở kết nối
-                                    include '../config/config.php';
-                                    $sql = "SELECT * FROM lop";
-                                    $result = mysqli_query($conn, $sql);
-                                    //? xác thực
-                                    if (mysqli_num_rows($result) > 0) {
-                                        while ($row = mysqli_fetch_assoc($result)) { ?>
-                                        <option><?php echo $row['malop']; ?></option>
-                                        <?php
-                                        }
-                                    }
-                                    ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group text-dark">
-                                <div class="form-group">
-                                    <label for="" class="control-label p-1 mt-1">khóa học</label>
-                                    <input type="text" class="form-control form-control-sm" id="course" value=""
-                                        required>
+                                    <label for="" class="control-label p-1 mt-1">Khóa học</label>
+                                    <input type="text" class="form-control form-control-sm" id="course" value="" required>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Tên phụ huynh</label>
-                                    <input type="text" class="form-control form-control-sm" id="parentName" value=""
-                                        required>
+                                    <input type="text" class="form-control form-control-sm" id="parentName" value="" required>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
                                 <div class="form-group">
-                                    <label for="" class="control-label p-1 mt-1">số điện thoại</label>
-                                    <input type="text" class="form-control form-control-sm" id="parentPhone" value=""
-                                        required>
+                                    <label for="" class="control-label p-1 mt-1">Số điện thoại</label>
+                                    <input type="text" class="form-control form-control-sm" id="parentPhone" value="" required>
                                 </div>
                             </div>
                             <div class="form-group text-dark">
                                 <div class="form-group">
-                                    <label for="" class="control-label p-1 mt-1">email</label>
-                                    <input type="text" class="form-control form-control-sm" id="parentEmail" value=""
-                                        required>
+                                    <label for="" class="control-label p-1 mt-1">Email</label>
+                                    <input type="text" class="form-control form-control-sm" id="parentEmail" value="" required>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer ">
+                    <div class="card-footer mt-3">
                         <div class="d-flex w-100 justify-content-center align-items-center">
-                            <button class="btn btn-success  mx-2" type="submit" id="btnSubmit"
-                                id="btnSubmit">Lưu</button>
-                            <a class="btn btn-success mx-2 backStudent" href="#">Quay lại</a>
+                            <button class="btn btn-primary  mx-2" type="submit" id="btnSubmit" id="btnSubmit">Lưu</button>
+                            <a class="btn btn-danger mx-2 backStudent" href="#">Quay lại</a>
                         </div>
                     </div>
                 </form>
@@ -106,51 +102,51 @@
 </div>
 
 <script>
-$(document).ready(function() {
-    $('.backStudent').click(function() {
-        $('#contents').load("students.php")
-    })
+    $(document).ready(function() {
+        $('.backStudent').click(function() {
+            $('#contents').load("students.php")
+        })
 
-    $('#btnSubmit').click(function() {
-        $studentID = $('#studentID').val();
-        $studentName = $('#studentName').val();
-        $studentGender = $('#studentGender').val();
-        $classID = $('#classID').val();
-        $studentAddress = $('#studentAddress').val();
-        $course = $('#course').val();
-        $parentName = $('#parentName').val();
-        $parentPhone = $('#parentPhone').val();
-        $parentEmail = $('#parentEmail').val();
+        $('#btnSubmit').click(function() {
+            $studentID = $('#studentID').val();
+            $studentName = $('#studentName').val();
+            $studentGender = $('#studentGender').val();
+            $classID = $('#classID').val();
+            $studentAddress = $('#studentAddress').val();
+            $course = $('#course').val();
+            $parentName = $('#parentName').val();
+            $parentPhone = $('#parentPhone').val();
+            $parentEmail = $('#parentEmail').val();
 
-        if ($studentID == "" || $studentName == "" || $studentAddress == "" || $course == "" ||
-            $parentName == "" || $parentPhone == "" || $parentEmail == "") {
-            alert("Vui lòng nhập đủ thông tin");
-        } else {
-            $.ajax({
-                type: "post",
-                url: "../process/process-add-student.php",
-                data: {
-                    studentName: $studentName,
-                    studentID: $studentID,
-                    studentGender: $studentGender,
-                    classID: $classID,
-                    studentAddress: $studentAddress,
-                    course: $course,
-                    parentName: $parentName,
-                    parentPhone: $parentPhone,
-                    parentEmail: $parentEmail,
-                },
-                success: function(response) {
-                    if (response == "success") {
-                        alert("Thêm thành công");
-                        $('#contents').load("students.php");
-                    } else {
-                        alert("Thêm thất bại");
+            if ($studentID == "" || $studentName == "" || $studentAddress == "" || $course == "" ||
+                $parentName == "" || $parentPhone == "" || $parentEmail == "") {
+                alert("Vui lòng nhập đủ thông tin");
+            } else {
+                $.ajax({
+                    type: "post",
+                    url: "../process/process-add-student.php",
+                    data: {
+                        studentName: $studentName,
+                        studentID: $studentID,
+                        studentGender: $studentGender,
+                        classID: $classID,
+                        studentAddress: $studentAddress,
+                        course: $course,
+                        parentName: $parentName,
+                        parentPhone: $parentPhone,
+                        parentEmail: $parentEmail,
+                    },
+                    success: function(response) {
+                        if (response == "success") {
+                            alert("Thêm thành công");
+                            $('#contents').load("students.php");
+                        } else {
+                            alert("Thêm thất bại");
+                        }
                     }
-                }
-            });
-        }
+                });
+            }
 
-    });
-})
+        });
+    })
 </script>
