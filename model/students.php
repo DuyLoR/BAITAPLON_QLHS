@@ -18,7 +18,7 @@ session_start();
     <div class="card card-outline card-primary">
         <!-- //? là admin thì mới có quyền chỉnh sửa -->
         <?php
-        if ($_SESSION['currentLevel'] == 1) {
+        if ($_SESSION['currentLevel'] == 1 || $_SESSION['currentLevel'] == 2) {
         ?>
             <div class="card-header">
                 <div class="card-tools">
@@ -56,7 +56,7 @@ session_start();
                         <th>Địa chỉ</th>
                         <th>Khoá học</th>
                         <?php
-                        if ($_SESSION['currentLevel'] == 1) {
+                        if ($_SESSION['currentLevel'] == 1 || $_SESSION['currentLevel'] == 2) {
                         ?>
                             <th class="text-center">Hành động</th>
                         <?php
@@ -86,7 +86,7 @@ session_start();
                                 <td><?php echo $row['khoahoc'] ?></td>
                                 <!-- //? là admin thì mới hiện nút sửa -->
                                 <?php
-                                if ($_SESSION['currentLevel'] == 1) {
+                                if ($_SESSION['currentLevel'] == 1 || $_SESSION['currentLevel'] == 2) {
                                 ?>
                                     <td class="text-center">
                                         <div class="btn-group">
