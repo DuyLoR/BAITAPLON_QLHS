@@ -6,8 +6,6 @@ session_start();
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1 class="m-0 text-start">Danh sách lớp học</h1>
-
-
             </div>
         </div>
         <hr class="border-primary">
@@ -30,14 +28,6 @@ session_start();
         ?>
         <div class="card-body">
             <table class="table cell-border table-bordered" id="list">
-                <!-- <colgroup>
-                    <col width="10%">
-                    <col width="20%">
-                    <col width="20%">
-                    <col width="30%">
-                    <col width="20%">
-
-                </colgroup> -->
                 <thead>
                     <tr>
                         <th class="text-center">#</th>
@@ -127,7 +117,7 @@ session_start();
                     success: function(response) {
                         if (response == 'success') {
                             alert("Xoá thành công!")
-                            location.reload()
+                            $('#contents').load("classes.php")
                         } else if (response == 'error') {
                             alert("Xoá thất bại")
                         }

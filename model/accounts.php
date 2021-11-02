@@ -59,7 +59,7 @@ session_start();
                                             <i class="fas fa-edit"></i>
 
                                         </button>
-                                        <button name="<?php ?>" class="btn btn-danger btn-flat deleteAccount">
+                                        <button name="<?php echo $row['tendangnhap'] ?>" class="btn btn-danger btn-flat deleteAccount">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </div>
@@ -87,21 +87,21 @@ session_start();
         })
 
 
-        //? xoá lớp 
+        //? xoá tài khản
         $('.deleteAccount').click(function() {
             $id = $(this).attr('name'); //? bắt giá trị name của hàng
-            if (confirm("Bạn có muốn xoá lớp '" + $id + "' không?")) {
+            if (confirm("Bạn có muốn xoá tài khoản '" + $id + "' không?")) {
                 //? nếu đồng ý
                 $.ajax({
                     type: "post",
-                    url: "../process/process-delete-class.php",
+                    url: "../process/process-delete-account.php",
                     data: {
-                        classId: $id,
+                        userName: $id,
                     },
                     success: function(response) {
                         if (response == 'success') {
                             alert("Xoá thành công!")
-                            location.reload()
+                            $('#contents').load("accounts.php")
                         } else if (response == 'error') {
                             alert("Xoá thất bại")
                         }
@@ -112,7 +112,7 @@ session_start();
         });
 
 
-        //? sửa lớp 
+        //? sửa tài khoản
         $('.editClass').click(function() {
             $id = $(this).attr('name'); //? bắt giá trị name của hàng
             $classID = $id.split(",")[0];
