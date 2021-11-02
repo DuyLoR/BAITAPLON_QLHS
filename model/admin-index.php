@@ -61,5 +61,6 @@ if (isset($_SESSION['currentUser'])) {
     </html>
 
 <?php
+    include './footer.php';
 } else header('location:login.php');
 ?>
