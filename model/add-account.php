@@ -93,9 +93,30 @@
 <script>
     $(document).ready(function() {
         // ? bắt sự kiện
-        if ($('#level').val() == 2) {
-            $("#teacherId").attr('disabled').removeAttr('disabled', true);
-        }
+
+
+        // $('#teacherId').prop("disabled", false);
+        $('#level').change(function() {
+            if (this.value == 2) {
+                $('#teacherId').prop("disabled", false)
+                $('#studentId').prop("disabled", true)
+                $('#studentId').val(null)
+
+
+            } else if (this.value == 0) {
+                $('#studentId').prop("disabled", false)
+                $('#teacherId').prop("disabled", true)
+                $('#teacherId').val(null)
+
+
+            } else if (this.value == 1) {
+                $('#teacherId').prop("disabled", true)
+                $('#studentId').prop("disabled", true)
+                $('#studentId').val(null)
+                $('#teacherId').val(null)
+            }
+
+        });
 
         // ? quay lại
         $('.backResult').click(function() {
@@ -111,19 +132,24 @@
             $studentId = $('#studentId').val();
 
 
-            if ($classID == "" || $className == "" || $teacherID == "") {
+            if ($userName == "" || $password == "" || $level == "") {
                 alert("Vui lòng nhập đủ thông tin");
             } else {
                 $.ajax({
                     type: "post",
                     url: "../process/process-add-account.php",
                     data: {
+                        userName: $userName,
+                        password: $password,
+                        level: $level,
+                        teacherId: $teacherId,
+                        studentId: $studentId,
 
                     },
                     success: function(response) {
                         if (response == "success") {
                             alert("Thêm thành công");
-                            $('#contents').load("classes.php");
+                            $('#contents').load("accounts.php");
                         } else {
                             alert("Thêm thất bại");
                         }
