@@ -4,16 +4,14 @@
         <div class="card card-outline card-primary border-2 border-info mt-4">
             <div class="card-body ">
                 <form action="" id="manage-student">
+                    <!-- Lấy dữ liệu từ database -->
+                    <?php
+                    //? mở kết nối
+                    include '../config/config.php';
+                    ?>
                     <div class="form-group text-dark">
                         <div class="form-group">
-
-                            <!-- Lấy dữ liệu từ database -->
-                            <?php
-                            //? mở kết nối
-                            include '../config/config.php';
-                            ?>
-
-                            <label for="" class="control-label p-1 mt-1">Mã học sinh</label>
+                            <label for="" class="control-label p-1 mt-1">Mã học sinh#</label>
                             <input type="text" class="form-control form-control-sm" id="studentId" value="" required disabled>
                         </div>
                     </div>
@@ -48,7 +46,7 @@
 
                             <div class="form-group text-dark">
                                 <div class="form-group">
-                                    <label for="" class="control-label p-1 mt-1">Giới tính</label> <br>
+                                    <label for="" class="control-label p-1 mt-1">Giới tính</label>
                                     <select id="gender" class="form-select form-select-sm" required>
                                         <option value="1">Nam</option>
                                         <option value="0">Nữ</option>
