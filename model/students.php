@@ -86,9 +86,9 @@ session_start();
                                 ?>
                                     <td class="text-center">
                                         <div class="btn-group">
-                                            <a href="#" class="btn btn-primary btn-flat manage_class">
+                                            <button name="<?php echo $row['mahs'] . ',' . $row['tenhs'] . ',' . $row['malop'] . ',' . $row['gioitinh'] . ',' . $row['tenph'] . ',' . $row['diachi'] . ',' . $row['khoahoc'];  ?>" class="btn btn-primary btn-flat editStudent">
                                                 <i class="fas fa-edit"></i>
-                                            </a>
+                                            </button>
                                             <button name="<?php echo $row['mahs'];  ?>" class="btn btn-danger btn-flat deleteStudent">
                                                 <i class="fas fa-trash"></i>
                                             </button>
@@ -142,9 +142,25 @@ session_start();
 
         });
 
+        //? sửa học sính
+        $('.editStudent').click(function() {
+            $id = $(this).attr('name'); //? bắt giá trị name của hàng
+            $studentId = $id.split(",")[0];
+            $studentName = $id.split(",")[1];
+            $classId = $id.split(",")[2];
+            $gender = $id.split(",")[3];
+            $parentName = $id.split(",")[4];
+            $address = $id.split(",")[5];
+            $year = $id.split(",")[6];
+
+
+            $('#contents').load("edit-student.php")
+
+        });
+
 
     })
 </script>
 <?php
-    include 'footer.php';
+include 'footer.php';
 ?>
