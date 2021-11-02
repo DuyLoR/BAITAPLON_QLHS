@@ -152,8 +152,8 @@ session_start();
             $parentName = $id.split(",")[4];
             $address = $id.split(",")[5];
             $year = $id.split(",")[6];
-            $phone = $id.split(",")[7];
-            $email = $id.split(",")[8];
+            $parentPhone = $id.split(",")[7];
+            $parentEmail = $id.split(",")[8];
 
 
 

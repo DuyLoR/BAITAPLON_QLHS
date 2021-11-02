@@ -88,7 +88,7 @@
 
                             <div class="form-group text-dark">
                                 <div class="form-group">
-                                    <label for="" class="control-label p-1 mt-1">parentEmail phụ huynh</label>
+                                    <label for="" class="control-label p-1 mt-1">Email phụ huynh</label>
                                     <input type="tel" class="form-control form-control-sm" id="parentEmail" value="" required>
                                 </div>
                             </div>
