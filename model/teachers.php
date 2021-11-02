@@ -116,9 +116,8 @@ session_start();
             $('#contents').load("add-teacher.php")
         })
 
-
-         //? xoá lớp 
-         $('.deleteTeacher').click(function() {
+        //? xoá giáo viên
+        $('.deleteTeacher').click(function() {
             $id = $(this).attr('name'); //? bắt giá trị name của hàng
             if (confirm("Bạn có muốn xoá giáo viên '" + $id + "' không?")) {
                 //? nếu đồng ý
@@ -131,7 +130,7 @@ session_start();
                     success: function(response) {
                         if (response == 'success') {
                             alert("Xoá thành công!")
-                            location.reload()
+                            $('#contents').load("teachers.php")
                         } else if (response == 'error') {
                             alert("Xoá thất bại")
                         }

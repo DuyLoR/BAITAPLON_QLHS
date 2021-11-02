@@ -76,5 +76,43 @@ $(document).ready(function() {
     $('.backTeacher').click(function() {
         $('#contents').load("teachers.php")
     })
+
+    $('#btnSubmit').click(function() {
+        $teacherID = $('#teacherID').val();
+        $teacherName = $('#teacherName').val();
+        $teacherGender = $('#teacherGender').val();
+        $teacherPosition = $('#teacherPosition').val();
+        $teacherAddress = $('#teacherAddress').val();
+        $teacherEmail = $('#teacherEmail').val();
+        $teacherPhone = $('#teacherPhone').val();
+
+        if ($teacherID == "" || $teacherName == "" || $teacherAddress == "" || $teacherGender == "" ||
+            $teacherPosition == "" || $teacherEmail == "" || $teacherPhone == "") {
+            alert("Vui lòng nhập đủ thông tin");
+        } else {
+            $.ajax({
+                type: "post",
+                url: "../process/process-add-teacher.php",
+                data: {
+                    teacherID: $teacherID,
+                    teacherName: $teacherName,
+                    teacherGender: $teacherGender,
+                    teacherPosition: $teacherPosition,
+                    teacherAddress: $teacherAddress,
+                    teacherEmail: $teacherEmail,
+                    teacherPhone: $teacherPhone,
+                },
+                success: function(response) {
+                    if (response == "success") {
+                        alert("Thêm thành công");
+                        $('#contents').load("teachers.php");
+                    } else {
+                        alert("Thêm thất bại");
+                    }
+                }
+            });
+        }
+
+    });
 })
 </script>

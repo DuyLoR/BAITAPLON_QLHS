@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST['subjectId'])) {
-    $classId = $_POST['subjectId'];
+    $subjectId = $_POST['subjectId'];
 
     //?mở kết nối
     include '../config/config.php';
@@ -15,5 +15,5 @@ if (isset($_POST['subjectId'])) {
         echo "error";
     }
     //? đóng kết nối
-    mysqli_close($conn); 
+    mysqli_close($conn);
 }
