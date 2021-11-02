@@ -62,7 +62,7 @@ session_start();
                                 <td><?php echo ($row['mahs'] == null ? $row['magv'] : $row['mahs']) ?></td>
                                 <td class="text-center">
                                     <div class="btn-group">
-                                        <button name="<?php ?>" class="btn btn-primary btn-flat editAccount">
+                                        <button name="<?php echo $row['tendangnhap'] ?>" class="btn btn-primary btn-flat editAccount">
                                             <i class="fas fa-edit"></i>
 
                                         </button>
@@ -91,6 +91,11 @@ session_start();
         //? thêm lớp 
         $('.newAccount').click(function() {
             $('#contents').load("add-account.php")
+        })
+        //? sửa tài khoản 
+        $('.editAccount').click(function() {
+            $userName = $(this).attr('name'); //? bắt giá trị name của hàng
+            $('#contents').load("edit-account.php")
         })
 
 
