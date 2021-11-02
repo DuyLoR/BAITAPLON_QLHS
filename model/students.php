@@ -76,7 +76,7 @@ session_start();
                                 <td><?php echo $row['mahs']; ?></td>
                                 <td><?php echo $row['tenhs'] ?></td>
                                 <td><?php echo $row['tenlop'] ?></td>
-                                <td><?php echo ($row['gioitinh'] == 1 ? "Nam" : "Nữ"); ?></td>
+                                <td><?php echo $row['gioitinh']; ?></td>
                                 <td><?php echo $row['tenph'] ?></td>
                                 <td><?php echo $row['diachi'] ?></td>
                                 <td><?php echo $row['khoahoc'] ?></td>
@@ -86,7 +86,7 @@ session_start();
                                 ?>
                                     <td class="text-center">
                                         <div class="btn-group">
-                                            <button name="<?php echo $row['mahs'] . ',' . $row['tenhs'] . ',' . $row['malop'] . ',' . $row['gioitinh'] . ',' . $row['tenph'] . ',' . $row['diachi'] . ',' . $row['khoahoc'];  ?>" class="btn btn-primary btn-flat editStudent">
+                                            <button name="<?php echo $row['mahs'] . ',' . $row['tenhs'] . ',' . $row['malop'] . ',' . $row['gioitinh'] . ',' . $row['tenph'] . ',' . $row['diachi'] . ',' . $row['khoahoc'] . ',' . $row['sdt'] . ',' . $row['email'];  ?>" class="btn btn-primary btn-flat editStudent">
                                                 <i class="fas fa-edit"></i>
                                             </button>
                                             <button name="<?php echo $row['mahs'];  ?>" class="btn btn-danger btn-flat deleteStudent">
@@ -152,6 +152,9 @@ session_start();
             $parentName = $id.split(",")[4];
             $address = $id.split(",")[5];
             $year = $id.split(",")[6];
+            $phone = $id.split(",")[7];
+            $email = $id.split(",")[8];
+
 
 
             $('#contents').load("edit-student.php")
