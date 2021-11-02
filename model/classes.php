@@ -16,12 +16,18 @@ session_start();
 
 <div class="col col-lg-12">
     <div class="card card-outline card-primary">
-        <div class="card-header">
-            <div class="card-tools">
-                <a class="btn btn-block btn-sm btn-default btn-flat border-primary newClass" href="javascript:void(0)"><i class="fa fa-plus"></i>Thêm</a>
+        <!-- //? là admin thì mới có quyền chỉnh sửa -->
+        <?php
+        if ($_SESSION['currentLevel'] == 1) {
+        ?>
+            <div class="card-header">
+                <div class="card-tools">
+                    <a class="btn btn-block btn-sm btn-default btn-flat border-primary newClass" href="javascript:void(0)"><i class="fa fa-plus"></i>Thêm</a>
+                </div>
             </div>
-        </div>
-
+        <?php
+        }
+        ?>
         <div class="card-body">
             <table class="table cell-border table-bordered" id="list">
                 <!-- <colgroup>
@@ -72,7 +78,7 @@ session_start();
                                 ?>
                                     <td class="text-center">
                                         <div class="btn-group">
-                                            <button name="<?php echo $row['malop'].','.$row['tenlop'].','.$row['magv'];  ?>" class="btn btn-primary btn-flat editClass">
+                                            <button name="<?php echo $row['malop'] . ',' . $row['tenlop'] . ',' . $row['magv'];  ?>" class="btn btn-primary btn-flat editClass">
                                                 <i class="fas fa-edit"></i>
 
                                             </button>
@@ -134,10 +140,10 @@ session_start();
 
         //? sửa lớp 
         $('.editClass').click(function() {
-        $id = $(this).attr('name'); //? bắt giá trị name của hàng
-        $classID = $id.split(",")[0];
-        $className = $id.split(",")[1];
-        $teacherID = $id.split(",")[2];
+            $id = $(this).attr('name'); //? bắt giá trị name của hàng
+            $classID = $id.split(",")[0];
+            $className = $id.split(",")[1];
+            $teacherID = $id.split(",")[2];
             $('#contents').load("edit-class.php")
 
         });
@@ -146,6 +152,3 @@ session_start();
 
     })
 </script>
-<?php
-    include 'footer.php';
-?>

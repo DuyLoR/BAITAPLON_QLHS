@@ -16,14 +16,18 @@ session_start();
 
 <div class="col col-lg-12">
     <div class="card card-outline card-primary">
-        <div class="card-header">
-            <div class="card-tools">
-                <a class="btn btn-block btn-sm btn-default btn-flat border-primary newStudent" href="javascript:void(0)">
-                    <i class="fa fa-plus"></i>
-                    Thêm
-                </a>
+        <!-- //? là admin thì mới có quyền chỉnh sửa -->
+        <?php
+        if ($_SESSION['currentLevel'] == 1 || $_SESSION['currentLevel'] == 2) {
+        ?>
+            <div class="card-header">
+                <div class="card-tools">
+                    <a class="btn btn-block btn-sm btn-default btn-flat border-primary newStudent" href="javascript:void(0)"><i class="fa fa-plus"></i>Thêm</a>
+                </div>
             </div>
-        </div>
+        <?php
+        }
+        ?>
 
         <div class="card-body">
             <table class="table cell-border table-bordered" id="list">
@@ -52,7 +56,7 @@ session_start();
                         <th>Địa chỉ</th>
                         <th>Khoá học</th>
                         <?php
-                        if ($_SESSION['currentLevel'] == 1) {
+                        if ($_SESSION['currentLevel'] == 1 || $_SESSION['currentLevel'] == 2) {
                         ?>
                             <th class="text-center">Hành động</th>
                         <?php
@@ -82,7 +86,7 @@ session_start();
                                 <td><?php echo $row['khoahoc'] ?></td>
                                 <!-- //? là admin thì mới hiện nút sửa -->
                                 <?php
-                                if ($_SESSION['currentLevel'] == 1) {
+                                if ($_SESSION['currentLevel'] == 1 || $_SESSION['currentLevel'] == 2) {
                                 ?>
                                     <td class="text-center">
                                         <div class="btn-group">
@@ -164,6 +168,3 @@ session_start();
 
     })
 </script>
-<?php
-include 'footer.php';
-?>
