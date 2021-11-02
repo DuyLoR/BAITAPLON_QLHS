@@ -3,9 +3,6 @@ session_start();
 echo $_SESSION['currentId'];
 if (isset($_SESSION['currentUser'])) {
 ?>
-    <?php
-    include 'header.php'
-    ?>
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div>
