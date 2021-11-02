@@ -96,8 +96,8 @@ session_start();
                                             <button name="<?php echo $row['mahs'];  ?>" class="btn btn-danger btn-flat deleteStudent">
                                                 <i class="fas fa-trash"></i>
                                             </button>
-                                            <button name="<?php echo $row['email'];  ?>" class="btn btn-danger btn-flat sendMail">
-                                                <i class='bx bx-mail-send'></i>
+                                            <button name="<?php echo $row['email'];  ?>" class="btn btn-success btn-flat sendEmail">
+                                                <i class="fas fa-envelope"></i>
                                             </button>
                                         </div>
                                     </td>
@@ -161,13 +161,15 @@ session_start();
             $year = $id.split(",")[6];
             $parentPhone = $id.split(",")[7];
             $parentEmail = $id.split(",")[8];
-
-
-
             $('#contents').load("edit-student.php")
 
         });
 
+        // ? gửi mail
+        $('.sendEmail').click(function() {
+            $email = $(this).attr('name'); //? bắt giá trị name của hàng
+            $('#contents').load("send-mail.php")
+        })
 
     })
 </script>
