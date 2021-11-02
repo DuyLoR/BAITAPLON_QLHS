@@ -11,7 +11,6 @@ if (isset($_POST['do_login'])) { //phải bấm đăng nhập thì mới vào đ
     //Xác thực
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
-        // $pass_hash = $row['user_pass'];
         $level = $row['capdo'];
         $id;
         if ($row['mahs'] == NULL) {
@@ -20,7 +19,7 @@ if (isset($_POST['do_login'])) { //phải bấm đăng nhập thì mới vào đ
             $id = $row['mahs'];
         }
         // if (password_verify($password, $pass_hash))
-        if ($password == $row['matkhau']) {
+        if (password_verify($password, $row['matkhau'])) {
             $_SESSION['currentUser'] = $userName;
             $_SESSION['currentLevel'] = $level;
             $_SESSION['currentId'] = $id;
