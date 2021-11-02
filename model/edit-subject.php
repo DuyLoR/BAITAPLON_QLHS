@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <h2 class="border-bottom border-info p-1">Thay đổi môn học</h2>
+    <h2 class="border-bottom border-info p-1">Thay đổi thông tin môn học</h2>
     <div class="col-lg-12">
         <div class="card card-outline card-primary border-2 border-info mt-4">
             <div class="card-body ">
