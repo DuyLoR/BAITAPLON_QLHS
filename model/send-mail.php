@@ -9,7 +9,7 @@
     </div>
     <div class="mb-3">
         <label class="form-label">Nội dung</label>
-        <textarea class="form-control" id="emailContents" rows="3"></textarea>
+        <textarea class="form-control" id="emailContent" rows="3"></textarea>
     </div>
     <button id="send" type="submit" class="btn btn-primary">Gửi</button>
 </div>
@@ -20,7 +20,13 @@
         $("#emailAddress").val($email);
 
         $('#send').click(function() {
+            $emailSubject = $('#emailSubject').val();
+            $emailContent = $('#emailContent').val();
+
+            if ($userName == '' || $password == '') {
+                alert("Vui lòng nhập đầy đủ TK và MK");
+            }
 
         });
-    });
+    })
 </script>
