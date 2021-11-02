@@ -32,7 +32,7 @@ session_start();
                     <tr>
                         <th class="text-center">#</th>
                         <th>Tên đăng nhập</th>
-                        <th>Mật khẩu</th>
+                        <th>Cấp độ</th>
                         <th>Mã người dùng</th>
                         <th class="text-center">Hành động</th>
                     </tr>
@@ -51,7 +51,14 @@ session_start();
                             <tr>
                                 <th class="text-center"><?php echo $stt++; ?></th>
                                 <td><?php echo $row['tendangnhap'] ?></td>
-                                <td><?php echo $row['matkhau'] ?></td>
+                                <td>
+                                    <?php
+                                    if ($row['capdo'] == 0) echo "Học sinh";
+                                    if ($row['capdo'] == 1) echo "Admin";
+                                    if ($row['capdo'] == 2) echo "Giáo viên";
+
+                                    ?>
+                                </td>
                                 <td><?php echo ($row['mahs'] == null ? $row['magv'] : $row['mahs']) ?></td>
                                 <td class="text-center">
                                     <div class="btn-group">
