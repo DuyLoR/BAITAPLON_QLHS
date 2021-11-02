@@ -51,7 +51,7 @@
                     </div>
                     <div class="card-footer">
                         <div class="d-flex w-100 justify-content-center align-items-center">
-                            <button class="btn btn-success  mx-2" type="submit" id="btnSubmit">Lưu</button>
+                            <button class="btn btn-primary  mx-2" type="submit" id="btnSubmit">Lưu</button>
                             <a class="btn btn-danger mx-2 backSubject" href="#">Quay lại</a>
                         </div>
                     </div>

@@ -80,7 +80,7 @@ session_start();
                                 <td><?php echo $row['mahs']; ?></td>
                                 <td><?php echo $row['tenhs'] ?></td>
                                 <td><?php echo $row['tenlop'] ?></td>
-                                <td><?php echo $row['gioitinh']; ?></td>
+                                <td><?php echo ($row['gioitinh'] == 1 ? "Nam" : "Nữ"); ?></td>
                                 <td><?php echo $row['tenph'] ?></td>
                                 <td><?php echo $row['diachi'] ?></td>
                                 <td><?php echo $row['khoahoc'] ?></td>
