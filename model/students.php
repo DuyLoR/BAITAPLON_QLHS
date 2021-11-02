@@ -96,6 +96,9 @@ session_start();
                                             <button name="<?php echo $row['mahs'];  ?>" class="btn btn-danger btn-flat deleteStudent">
                                                 <i class="fas fa-trash"></i>
                                             </button>
+                                            <button name="<?php echo $row['email'];  ?>" class="btn btn-danger btn-flat sendMail">
+                                                <i class='bx bx-mail-send'></i>
+                                            </button>
                                         </div>
                                     </td>
                                 <?php
