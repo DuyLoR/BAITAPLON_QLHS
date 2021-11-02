@@ -1,4 +1,5 @@
 <div>
+    <!-- chỉ dùng được tài khoản mặc định -->
     <div class="mb-3">
         <label class="form-label">Gửi đến</label>
         <input id="emailAddress" type="email" class="form-control" disabled>
@@ -23,8 +24,25 @@
             $emailSubject = $('#emailSubject').val();
             $emailContent = $('#emailContent').val();
 
-            if ($userName == '' || $password == '') {
-                alert("Vui lòng nhập đầy đủ TK và MK");
+            if ($emailSubject == '' || $emailContent == '') {
+                alert("Vui lòng nhập đầy đủ chủ đề và nội dung");
+            } else {
+                $.ajax({
+                    type: "post",
+                    url: "../mail/send.php",
+                    data: {
+                        emailAddress: $email,
+                        emailSubject: $emailSubject,
+                        emailContent: $emailContent,
+                    },
+                    success: function(response) {
+                        if (response == 'success') {
+                            alert("Đã gửi")
+                        } else if (response == 'error') {
+                            alert("Gửi không thành công")
+                        }
+                    }
+                });
             }
 
         });
