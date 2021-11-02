@@ -2,6 +2,7 @@
 session_start();
 echo $_SESSION['currentId'];
 if (isset($_SESSION['currentUser'])) {
+    include './header.php';
 ?>
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
@@ -14,6 +15,18 @@ if (isset($_SESSION['currentUser'])) {
                         <i class='bx bx-home nav_icon'></i>
                         <span class="nav_name">Trang chủ</span>
                     </a>
+
+                    <!-- riêng admin -->
+                    <?php
+                    if ($_SESSION['currentLevel'] == 1) {
+                    ?>
+                        <a href="#" class="nav_link" id="accounts">
+                            <i class='bx bxs-user-account nav_icon'></i>
+                            <span class="nav_name">Tài khoản</span>
+                        </a>
+                    <?php
+                    }
+                    ?>
                     <a href="#" class="nav_link" id="classes">
                         <i class='bx bxs-school nav_icon'></i>
                         <span class="nav_name">Lớp học</span>

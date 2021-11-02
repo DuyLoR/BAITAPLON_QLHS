@@ -46,6 +46,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
         $("#contents").load('classes.php');
     });
 
+    $("#accounts").click(function() {
+        $("#contents").load('accounts.php');
+    });
+
     $("#subjects").click(function() {
         $("#contents").load('subjects.php');
     });
