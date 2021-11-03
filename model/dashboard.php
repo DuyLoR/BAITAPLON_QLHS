@@ -55,4 +55,8 @@ if (isset($_SESSION['currentUser'])) {
     }
 } else header('location:login.php');
     ?>
+<?php
+    //? đóng kết nối
+    mysqli_close($conn);
+?>
     
