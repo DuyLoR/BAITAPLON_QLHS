@@ -38,3 +38,8 @@ if (isset($_POST['do_login'])) { //phải bấm đăng nhập thì mới vào đ
         echo "fail"; //sai username
     }
 } else header('location:login.php'); //chuyển về trang đăng nhập
+?>
+<?php
+    //? đóng kết nối
+    mysqli_close($conn);
+?>
