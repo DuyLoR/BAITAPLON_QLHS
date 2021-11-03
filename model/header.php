@@ -23,8 +23,6 @@
 
     <!-- my css -->
     <link rel="stylesheet" href="./assets/css/table-data.css">
-
-<<<<<<< HEAD
         <link rel="stylesheet" href="../assets/css/sidebar.css">
         <title>Document</title>
     </head>
@@ -33,7 +31,6 @@
             <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
             <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
         </header> 
-=======
     <link rel="stylesheet" href="./assets/css/sidebar.css">
     <title>Quản lý học sinh</title>
 </head>
@@ -43,4 +40,5 @@
         <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
         <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
     </header>
->>>>>>> master
+        <div class="header_img"> <img src="https://nhadat24h.com/uploads/truonghoc/truongdaihocthuyloi.jpg" alt=""> </div>
+    </header>
