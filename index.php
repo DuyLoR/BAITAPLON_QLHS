@@ -3,6 +3,7 @@ session_start();
 if (isset($_SESSION['currentUser'])) {
     include './model/header.php';
 ?>
+
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div>
