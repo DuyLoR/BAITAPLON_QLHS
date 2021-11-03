@@ -101,6 +101,7 @@ if ($_SESSION['currentLevel'] == 1) {
         // ? thiết lập mặc định
         $('#studentId').val(null)
         $('#teacherId').val(null)
+        
 
         // $('#teacherId').prop("disabled", false);
         $('#level').change(function() {
@@ -137,11 +138,14 @@ if ($_SESSION['currentLevel'] == 1) {
             $level = $('#level').val();
             $teacherId = $('#teacherId').val();
             $studentId = $('#studentId').val();
-
-
+            
             if ($userName == "" || $password == "" || $level == "") {
                 alert("Vui lòng nhập đủ thông tin");
-            } else {
+                return;
+            } else if($password.length <6){
+                alert("Mật khẩu phải lớn hơn 6 ký tự!");
+                return;
+            } else{
                 $.ajax({
                     type: "post",
                     url: "./process/process-add-account.php",
