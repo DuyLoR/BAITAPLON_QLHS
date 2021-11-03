@@ -10,8 +10,7 @@
                             <div class="form-group text-dark">
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Tên đăng nhập#</label>
-                                    <input type="text" class="form-control form-control-sm" id="userName" value=""
-                                        required disabled>
+                                    <input type="text" class="form-control form-control-sm" id="userName" value="" required disabled>
                                 </div>
                             </div>
                         </div>
@@ -32,20 +31,19 @@
                             <div class="form-group">
                                 <label for="" class="control-label p-1 mt-1">Mã giáo viên</label>
                                 <select id="teacherId" class="form-select form-select-sm" required disabled>
-                                    <option>NULL</option>
                                     <!-- Lấy dữ liệu từ database -->
                                     <?php
-                                        //? mở kết nối
-                                        include '../config/config.php';
-                                        $sql = "SELECT * FROM giaovien";
-                                        $result = mysqli_query($conn, $sql);
-                                        //? xác thực
-                                        if (mysqli_num_rows($result) > 0) {
-                                            while ($row = mysqli_fetch_assoc($result)) {
-                                                echo '<option value="' . $row['magv'] . '">' . $row['magv'] . '</option>';
-                                            }
+                                    //? mở kết nối
+                                    include '../config/config.php';
+                                    $sql = "SELECT * FROM giaovien";
+                                    $result = mysqli_query($conn, $sql);
+                                    //? xác thực
+                                    if (mysqli_num_rows($result) > 0) {
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            echo '<option value="' . $row['magv'] . '">' . $row['magv'] . '</option>';
                                         }
-                                        ?>
+                                    }
+                                    ?>
                                 </select>
                             </div>
                         </div>
@@ -53,27 +51,25 @@
                             <div class="form-group">
                                 <label for="" class="control-label p-1 mt-1">Mã học sinh</label>
                                 <select id="studentId" class="form-select form-select-sm" required disabled>
-                                    <option>NULL</option>
                                     <!-- Lấy dữ liệu từ database -->
                                     <?php
-                                        //? mở kết nối
-                                        include '../config/config.php';
-                                        $sql = "SELECT * FROM hocsinh";
-                                        $result = mysqli_query($conn, $sql);
-                                        //? xác thực
-                                        if (mysqli_num_rows($result) > 0) {
-                                            while ($row = mysqli_fetch_assoc($result)) {
-                                                echo '<option value="' . $row['mahs'] . '">' . $row['mahs'] . '</option>';
-                                            }
+                                    //? mở kết nối
+                                    include '../config/config.php';
+                                    $sql = "SELECT * FROM hocsinh";
+                                    $result = mysqli_query($conn, $sql);
+                                    //? xác thực
+                                    if (mysqli_num_rows($result) > 0) {
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            echo '<option value="' . $row['mahs'] . '">' . $row['mahs'] . '</option>';
                                         }
-                                        ?>
+                                    }
+                                    ?>
                                 </select>
                             </div>
                         </div>
                         <div class="card-footer mt-4">
                             <div class="d-flex w-100 justify-content-center align-items-center">
-                                <button class="btn btn-primary  mx-2" type="submit" name="btnSubmit"
-                                    id="btnSubmit">Lưu</button>
+                                <button class="btn btn-primary  mx-2" type="submit" name="btnSubmit" id="btnSubmit">Lưu</button>
                                 <a class="btn btn-danger mx-2 backResult" href="#">Quay lại</a>
                             </div>
                         </div>
@@ -87,68 +83,72 @@
     </div>
 </div>
 <script>
-$(document).ready(function() {
-    // ? bắt sự kiện
-    $("#userName").val($userName);
-    $('#level').change(function() {
-        if (this.value == 2) {
-            $('#teacherId').prop("disabled", false)
-            $('#studentId').prop("disabled", true)
-            $('#studentId').val(null)
+    $(document).ready(function() {
+        // ? thiết lập mặc định
+        $('#studentId').val(null)
+        $('#teacherId').val(null)
+
+        // ? bắt sự kiện
+        $("#userName").val($userName);
+        $('#level').change(function() {
+            if (this.value == 2) {
+                $('#teacherId').prop("disabled", false)
+                $('#studentId').prop("disabled", true)
+                $('#studentId').val(null)
 
 
-        } else if (this.value == 0) {
-            $('#studentId').prop("disabled", false)
-            $('#teacherId').prop("disabled", true)
-            $('#teacherId').val(null)
+            } else if (this.value == 0) {
+                $('#studentId').prop("disabled", false)
+                $('#teacherId').prop("disabled", true)
+                $('#teacherId').val(null)
 
 
-        } else if (this.value == 1) {
-            $('#teacherId').prop("disabled", true)
-            $('#studentId').prop("disabled", true)
-            $('#studentId').val(null)
-            $('#teacherId').val(null)
-        }
+            } else if (this.value == 1) {
+                $('#teacherId').prop("disabled", true)
+                $('#studentId').prop("disabled", true)
+                $('#studentId').val(null)
+                $('#teacherId').val(null)
+            }
 
-    });
+        });
 
-    // ? quay lại
-    $('.backResult').click(function() {
-        $('#contents').load("accounts.php")
-    })
+        // ? quay lại
+        $('.backResult').click(function() {
+            $('#contents').load("./model/accounts.php")
+        })
 
-    // ? sửa tài khoản
-    $('#btnSubmit').click(function() {
-        $userName = $('#userName').val();
-        $level = $('#level').val();
-        $teacherId = $('#teacherId').val();
-        $studentId = $('#studentId').val();
+        // ? sửa tài khoản
+        $('#btnSubmit').click(function() {
+            $userName = $('#userName').val();
+            $level = $('#level').val();
+            $teacherId = $('#teacherId').val();
+            $studentId = $('#studentId').val();
 
 
-        if ($userName == "" || $level == "") {
-            alert("Vui lòng nhập đủ thông tin");
-        } else {
-            $.ajax({
-                type: "post",
-                url: "../process/process-edit-account.php",
-                data: {
-                    userName: $userName,
-                    level: $level,
-                    teacherId: $teacherId,
-                    studentId: $studentId,
+            if ($userName == "" || $level == "") {
+                alert("Vui lòng nhập đủ thông tin");
+            } else {
+                $.ajax({
+                    type: "post",
+                    url: "./process/process-edit-account.php",
+                    data: {
+                        userName: $userName,
+                        level: $level,
+                        teacherId: $teacherId,
+                        studentId: $studentId,
 
-                },
-                success: function(response) {
-                    if (response == "success") {
-                        alert("sửa thành công");
-                        $('#contents').load("accounts.php");
-                    } else {
-                        alert("sửa thất bại");
+                    },
+                    success: function(response) {
+                        if (response == "success") {
+                            alert("sửa thành công");
+                            $('#contents').load("./model/accounts.php");
+                        } else {
+                            alert("sửa thất bại");
+                        }
                     }
-                }
-            });
-        }
+                });
+            }
 
-    });
-})
+        });
+    })
 </script>

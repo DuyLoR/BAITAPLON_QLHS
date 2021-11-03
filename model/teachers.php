@@ -120,7 +120,7 @@ session_start();
         $('#list').dataTable()
 
         $('.newTeacher').click(function() {
-            $('#contents').load("add-teacher.php")
+            $('#contents').load("./model/add-teacher.php")
         })
 
         // Sửa giáo viên
@@ -136,7 +136,7 @@ session_start();
             $teacherEmail = $id.split(",")[5];
             $teacherAddress = $id.split(",")[6];
 
-            $('#contents').load("edit-teacher.php")
+            $('#contents').load("./model/edit-teacher.php")
         })
 
         //? xoá giáo viên
@@ -146,14 +146,14 @@ session_start();
                 //? nếu đồng ý
                 $.ajax({
                     type: "post",
-                    url: "../process/process-delete-teacher.php",
+                    url: "./process/process-delete-teacher.php",
                     data: {
                         teacherId: $id,
                     },
                     success: function(response) {
                         if (response == 'success') {
                             alert("Xoá thành công!")
-                            $('#contents').load("teachers.php")
+                            $('#contents').load("./model/teachers.php")
                         } else if (response == 'error') {
                             alert("Xoá thất bại")
                         }

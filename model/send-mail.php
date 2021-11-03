@@ -29,7 +29,7 @@
             } else {
                 $.ajax({
                     type: "post",
-                    url: "../mail/send.php",
+                    url: "./mail/send.php",
                     data: {
                         emailAddress: $email,
                         emailSubject: $emailSubject,

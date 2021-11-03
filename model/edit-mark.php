@@ -82,7 +82,7 @@
         $("#markThird").val($markThird);
 
         $('.backResult').click(function() {
-            $('#contents').load("marks.php")
+            $('#contents').load("./model/marks.php")
         })
 
         $('#btnSubmit').click(function() {
@@ -97,7 +97,7 @@
             } else {
                 $.ajax({
                     type: "post",
-                    url: "../process/process-edit-mark.php",
+                    url: "./process/process-edit-mark.php",
                     data: {
                         subjectID: $subjectID,
                         studentID: $studentID,
@@ -108,7 +108,7 @@
                     success: function(response) {
                         if (response == "success") {
                             alert("Sửa thành công");
-                            $('#contents').load("marks.php");
+                            $('#contents').load("./model/marks.php");
                         } else {
                             alert("Sửa thất bại");
                         }

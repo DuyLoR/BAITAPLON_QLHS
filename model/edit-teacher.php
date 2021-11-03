@@ -78,7 +78,7 @@
 
         //? quay lại
         $('.backTeacher').click(function() {
-            $('#contents').load("teachers.php")
+            $('#contents').load("./model/teachers.php")
         })
 
         $('#btnSubmit').click(function() {
@@ -96,7 +96,7 @@
             } else {
                 $.ajax({
                     type: "post",
-                    url: "../process/process-edit-teacher.php",
+                    url: "./process/process-edit-teacher.php",
                     data: {
                         teacherID: $teacherID,
                         teacherName: $teacherName,
@@ -109,7 +109,7 @@
                     success: function(response) {
                         if (response == "success") {
                             alert("Sửa thành công");
-                            $('#contents').load("teachers.php");
+                            $('#contents').load("./model/teachers.php");
                         } else {
                             alert("Sửa thất bại");
                         }

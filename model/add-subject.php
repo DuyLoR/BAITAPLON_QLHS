@@ -62,7 +62,7 @@
 <script>
     $(document).ready(function() {
         $('.backSubject').click(function() {
-            $('#contents').load("subjects.php")
+            $('#contents').load("./model/subjects.php")
         })
 
         $('#btnSubmit').click(function() {
@@ -76,7 +76,7 @@
             } else {
                 $.ajax({
                     type: "post",
-                    url: "../process/process-add-subject.php",
+                    url: "./process/process-add-subject.php",
                     data: {
                         subjectName: $subjectName,
                         subjectID: $subjectID,
@@ -86,7 +86,7 @@
                     success: function(response) {
                         if (response == "success") {
                             alert("Thêm thành công");
-                            $('#contents').load("subjects.php");
+                            $('#contents').load("./model/subjects.php");
                         } else {
                             alert("Thêm thất bại");
                         }

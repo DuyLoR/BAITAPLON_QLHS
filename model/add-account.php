@@ -36,7 +36,6 @@
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Mã giáo viên</label>
                                     <select id="teacherId" class="form-select form-select-sm" required disabled>
-                                        <option>NULL</option>
                                         <!-- Lấy dữ liệu từ database -->
                                         <?php
                                         //? mở kết nối
@@ -57,7 +56,6 @@
                                 <div class="form-group">
                                     <label for="" class="control-label p-1 mt-1">Mã học sinh</label>
                                     <select id="studentId" class="form-select form-select-sm" required disabled>
-                                        <option>NULL</option>
                                         <!-- Lấy dữ liệu từ database -->
                                         <?php
                                         //? mở kết nối
@@ -92,8 +90,9 @@
 </div>
 <script>
     $(document).ready(function() {
-        // ? bắt sự kiện
-
+        // ? thiết lập mặc định
+        $('#studentId').val(null)
+        $('#teacherId').val(null)
 
         // $('#teacherId').prop("disabled", false);
         $('#level').change(function() {
@@ -120,7 +119,7 @@
 
         // ? quay lại
         $('.backResult').click(function() {
-            $('#contents').load("accounts.php")
+            $('#contents').load("./model/accounts.php")
         })
 
         // ? thêm tài khoản
@@ -137,7 +136,7 @@
             } else {
                 $.ajax({
                     type: "post",
-                    url: "../process/process-add-account.php",
+                    url: "./process/process-add-account.php",
                     data: {
                         userName: $userName,
                         password: $password,
@@ -149,7 +148,7 @@
                     success: function(response) {
                         if (response == "success") {
                             alert("Thêm thành công");
-                            $('#contents').load("accounts.php");
+                            $('#contents').load("./model/accounts.php");
                         } else {
                             alert("Thêm thất bại");
                         }

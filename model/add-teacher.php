@@ -68,7 +68,7 @@
 <script>
     $(document).ready(function() {
         $('.backTeacher').click(function() {
-            $('#contents').load("teachers.php")
+            $('#contents').load("./model/teachers.php")
         })
 
         $('#btnSubmit').click(function() {
@@ -86,7 +86,7 @@
             } else {
                 $.ajax({
                     type: "post",
-                    url: "../process/process-add-teacher.php",
+                    url: "./process/process-add-teacher.php",
                     data: {
                         teacherID: $teacherID,
                         teacherName: $teacherName,
@@ -99,7 +99,7 @@
                     success: function(response) {
                         if (response == "success") {
                             alert("Thêm thành công");
-                            $('#contents').load("teachers.php");
+                            $('#contents').load("./model/teachers.php");
                         } else {
                             alert("Thêm thất bại");
                         }

@@ -123,7 +123,7 @@
 
         //? quay lại
         $('.backResult').click(function() {
-            $('#contents').load("students.php")
+            $('#contents').load("./model/students.php")
         })
 
         //? gửi
@@ -144,7 +144,7 @@
             } else {
                 $.ajax({
                     type: "post",
-                    url: "../process/process-edit-student.php",
+                    url: "./process/process-edit-student.php",
                     data: {
                         studentId: $studentId,
                         studentName: $studentName,
@@ -160,7 +160,7 @@
                     success: function(response) {
                         if (response == "success") {
                             alert("sửa thành công");
-                            $('#contents').load("students.php");
+                            $('#contents').load("./model/students.php");
                         } else {
                             alert("sửa thất bại");
                         }

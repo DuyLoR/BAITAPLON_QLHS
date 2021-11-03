@@ -122,7 +122,7 @@ session_start();
         $('#list').dataTable()
 
         $('.newStudent').click(function() {
-            $('#contents').load("add-student.php")
+            $('#contents').load("./model/add-student.php")
         })
 
         //? xoá học sinh
@@ -132,14 +132,14 @@ session_start();
                 //? nếu đồng ý
                 $.ajax({
                     type: "post",
-                    url: "../process/process-delete-student.php",
+                    url: "./process/process-delete-student.php",
                     data: {
                         studentId: $id,
                     },
                     success: function(response) {
                         if (response == 'success') {
                             alert("Xoá thành công!")
-                            $('#contents').load("students.php")
+                            $('#contents').load("./model/students.php")
                         } else if (response == 'error') {
                             alert("Xoá thất bại")
                         }
@@ -161,14 +161,14 @@ session_start();
             $year = $id.split(",")[6];
             $parentPhone = $id.split(",")[7];
             $parentEmail = $id.split(",")[8];
-            $('#contents').load("edit-student.php")
+            $('#contents').load("./model/edit-student.php")
 
         });
 
         // ? gửi mail
         $('.sendEmail').click(function() {
             $email = $(this).attr('name'); //? bắt giá trị name của hàng
-            $('#contents').load("send-mail.php")
+            $('#contents').load("./model/send-mail.php")
         })
 
     })
