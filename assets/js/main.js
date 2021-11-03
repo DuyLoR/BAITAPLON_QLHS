@@ -36,28 +36,32 @@ document.addEventListener("DOMContentLoaded", function(event) {
     linkColor.forEach(l=> l.addEventListener('click', colorLink))
     
     // Đổi page
-    $("#contents").load('classes.php'); //Trang đầu tiên xuất hiện
+    $("#contents").load('./model/dashboard.php'); //Trang đầu tiên xuất hiện
 
     $("#dashboard").click(function() {
-        $("#contents").load('dashboard.php');
+        $("#contents").load('./model/dashboard.php');
     });
 
     $("#classes").click(function() {
-        $("#contents").load('classes.php');
+        $("#contents").load('./model/classes.php');
+    });
+
+    $("#accounts").click(function() {
+        $("#contents").load('./model/accounts.php');
     });
 
     $("#subjects").click(function() {
-        $("#contents").load('subjects.php');
+        $("#contents").load('./model/subjects.php');
     });
 
     $("#teachers").click(function() {
-        $("#contents").load('teachers.php');
+        $("#contents").load('./model/teachers.php');
     });
     $("#students").click(function() {
-        $("#contents").load('students.php');
+        $("#contents").load('./model/students.php');
     });
     $("#results").click(function() {
-        $("#contents").load('marks.php');
+        $("#contents").load('./model/marks.php');
     });
 
     // data table

@@ -27,12 +27,11 @@
         <div class="row">
             <div class="col-md-12 form-group">
                 <input type="submit" name="login" class="btn btn-primary btn-block btn-login" value="Đăng nhập">
-                <input type="submit" name="view" class="btn btn-success btn-block btn-view" value="Quên mật khẩu">
             </div>
         </div>
     </div>
 
-    <div class="footer text-center">Copy right by team8</div>
+    <div class="footer text-center">Thank you for choosing us. Design by <a href="#">PDLearn</a></div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
@@ -40,38 +39,45 @@
     <!-- <script src="assets/js/login.js"></script> -->
     <script>
         $(document).ready(function() {
-            $('.btn-login').click(function() {
-                $userName = $('#userName').val();
-                $password = $('#password').val();
+            $(document).keypress(function(event) {
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+                if (keycode == '13') {
+                    $userName = $('#userName').val();
+                    $password = $('#password').val();
 
-                if ($userName == '' || $password == '') {
-                    alert("Vui lòng nhập đầy đủ TK và MK");
-                } else {
-                    $.ajax({
-                        url: "../process/process-login.php",
-                        type: "POST",
-                        data: {
-                            do_login: "do_login",
-                            userName: $userName,
-                            password: $password
-                        },
-                        success: function(response) {
-                            if (response == "admin") {
-                                window.location.href = "admin-index.php";
-                            } else if (response == "teacher") {
-                                window.location.href = "admin-index.php";
-                            } else if (response == "student") {
-                                window.location.href = "admin-index.php"
-                            } else if (response == "wrong") {
-                                alert("Mật khẩu không chính xác !");
-                            } else {
-                                alert("Tài khoản không tồn tại")
+                    if ($userName == '' || $password == '') {
+                        alert("Vui lòng nhập đầy đủ TK và MK");
+                    } else {
+                        $.ajax({
+                            url: "../process/process-login.php",
+                            type: "POST",
+                            data: {
+                                do_login: "do_login",
+                                userName: $userName,
+                                password: $password
+                            },
+                            success: function(response) {
+                                if (response == "admin") {
+                                    window.location.href = "../index.php";
+                                } else if (response == "teacher") {
+                                    window.location.href = "../index.php";
+                                } else if (response == "student") {
+                                    window.location.href = "../index.php"
+                                } else if (response == "wrong") {
+                                    alert("Mật khẩu không chính xác !");
+                                } else {
+                                    alert("Tài khoản không tồn tại")
+                                }
                             }
-                        }
-                    });
+                        });
 
 
+                    }
                 }
+            });
+
+            $('.btn-login').click(function() {
+
 
             });
         })

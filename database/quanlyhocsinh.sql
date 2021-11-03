@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 01, 2021 at 03:16 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th10 02, 2021 lúc 03:57 PM
+-- Phiên bản máy phục vụ: 10.4.20-MariaDB
+-- Phiên bản PHP: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,36 +18,36 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `quanlyhocsinh`
+-- Cơ sở dữ liệu: `quanlyhocsinh`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dangnhap`
+-- Cấu trúc bảng cho bảng `dangnhap`
 --
 
 CREATE TABLE `dangnhap` (
   `tendangnhap` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `matkhau` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `matkhau` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `capdo` tinyint(2) NOT NULL DEFAULT 0,
   `mahs` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `magv` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `dangnhap`
+-- Đang đổ dữ liệu cho bảng `dangnhap`
 --
 
 INSERT INTO `dangnhap` (`tendangnhap`, `matkhau`, `capdo`, `mahs`, `magv`) VALUES
-('admin', 'admin', 1, NULL, NULL),
+('admin', '$2y$10$uzMp1V1Yc7XJ3ISLZoCGhudqnCHAvbaArW7J9Zb8X43oXoGAt0CTq', 1, NULL, NULL),
 ('giaovien', 'giaovien', 2, NULL, 'GV00'),
 ('hocsinh', 'hocsinh', 0, 'HS00', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `diem`
+-- Cấu trúc bảng cho bảng `diem`
 --
 
 CREATE TABLE `diem` (
@@ -59,21 +59,19 @@ CREATE TABLE `diem` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `diem`
+-- Đang đổ dữ liệu cho bảng `diem`
 --
 
 INSERT INTO `diem` (`mahs`, `mamh`, `diemm`, `diemgk`, `diemck`) VALUES
-('HS00', 'MH00', 10, 10, 10),
-('HS00', 'MH01', 8, 8, 8),
+('HS00', 'MH01', 3, 2, 1),
 ('HS00', 'MH02', 5, 5, 5),
-('HS00', 'MH00', 1, 1, 1),
-('HS00', 'MH00', 2, 2, 2),
-('HS00', 'MH00', 1, 1, 1);
+('HS01', 'MH00', 1, 1, 1),
+('HS00', 'MH01', 3, 2, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `giaovien`
+-- Cấu trúc bảng cho bảng `giaovien`
 --
 
 CREATE TABLE `giaovien` (
@@ -87,17 +85,18 @@ CREATE TABLE `giaovien` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `giaovien`
+-- Đang đổ dữ liệu cho bảng `giaovien`
 --
 
 INSERT INTO `giaovien` (`magv`, `tengv`, `gioitinh`, `chucvu`, `sodt`, `email`, `diachi`) VALUES
+('ac', 'ac', 1, 'ac', 'ac', 'ac', 'ac'),
 ('GV00', 'Nguyễn Văn A', 1, 'Phó hiệu trưởng', '1234567891', 'anv@gmail.com', 'Hà Nội'),
-('GV01', 'Nguyễn Văn B', 1, 'Giáo Viên', '1234567892', 'bnv@gmail.com', 'Hà Nội');
+('GV01', 'Nguyễn Văn B', 0, 'Giáo Viên', '1234567892', 'bnv@gmail.com', 'Hà Nội');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hocsinh`
+-- Cấu trúc bảng cho bảng `hocsinh`
 --
 
 CREATE TABLE `hocsinh` (
@@ -113,18 +112,19 @@ CREATE TABLE `hocsinh` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `hocsinh`
+-- Đang đổ dữ liệu cho bảng `hocsinh`
 --
 
 INSERT INTO `hocsinh` (`mahs`, `tenhs`, `malop`, `gioitinh`, `diachi`, `khoahoc`, `tenph`, `email`, `sdt`) VALUES
+('a', 'b', 'LOP00', 1, 'a', 'a', 'a', 'b', 'a'),
 ('HS00', 'Nguyễn Văn P', 'LOP00', 1, 'Hà Nội', '2020-2023', 'Phụ Huynh A', 'aph@gmail.com', '1234567881'),
 ('HS01', 'Nguyễn Thị H', 'LOP00', 0, 'Hà Nội', '2020-2023', 'Phụ Huynh B', 'bph@gmail.com', '1234567882'),
-('HS02', 'Nguyễn Văn K', 'LOP01', 1, 'Hà Nội', '2020-2023', 'Phụ Huynh C', 'cph@gmail.com', '1234567883');
+('HS02', 'Nguyễn Văn K', 'LOP01', 0, 'Hà Nội', '2020-2023', 'Phụ Huynh C', 'cph@gmail.com', '1234567883');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `lop`
+-- Cấu trúc bảng cho bảng `lop`
 --
 
 CREATE TABLE `lop` (
@@ -134,17 +134,18 @@ CREATE TABLE `lop` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `lop`
+-- Đang đổ dữ liệu cho bảng `lop`
 --
 
 INSERT INTO `lop` (`malop`, `tenlop`, `magvcn`) VALUES
-('LOP00', '10A1', 'GV00'),
-('LOP01', '10A2', 'GV01');
+('LOP00', '10A1', 'GV01'),
+('LOP01', '10A2', 'GV01'),
+('phu', 'phu', 'GV00');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `monhoc`
+-- Cấu trúc bảng cho bảng `monhoc`
 --
 
 CREATE TABLE `monhoc` (
@@ -155,20 +156,20 @@ CREATE TABLE `monhoc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `monhoc`
+-- Đang đổ dữ liệu cho bảng `monhoc`
 --
 
 INSERT INTO `monhoc` (`mamh`, `tenmh`, `magv`, `sotiet`) VALUES
 ('MH00', 'Toán', 'GV00', 45),
 ('MH01', 'Lý', 'GV00', 45),
-('MH02', 'Hóa', 'GV00', 45);
+('MH02', 'Hóa', 'GV01', 45);
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `dangnhap`
+-- Chỉ mục cho bảng `dangnhap`
 --
 ALTER TABLE `dangnhap`
   ADD PRIMARY KEY (`tendangnhap`),
@@ -176,71 +177,71 @@ ALTER TABLE `dangnhap`
   ADD KEY `magv` (`magv`);
 
 --
--- Indexes for table `diem`
+-- Chỉ mục cho bảng `diem`
 --
 ALTER TABLE `diem`
   ADD KEY `mahs` (`mahs`),
   ADD KEY `mamh` (`mamh`);
 
 --
--- Indexes for table `giaovien`
+-- Chỉ mục cho bảng `giaovien`
 --
 ALTER TABLE `giaovien`
   ADD PRIMARY KEY (`magv`);
 
 --
--- Indexes for table `hocsinh`
+-- Chỉ mục cho bảng `hocsinh`
 --
 ALTER TABLE `hocsinh`
   ADD PRIMARY KEY (`mahs`),
   ADD KEY `malop` (`malop`);
 
 --
--- Indexes for table `lop`
+-- Chỉ mục cho bảng `lop`
 --
 ALTER TABLE `lop`
   ADD PRIMARY KEY (`malop`),
   ADD KEY `magvcn` (`magvcn`);
 
 --
--- Indexes for table `monhoc`
+-- Chỉ mục cho bảng `monhoc`
 --
 ALTER TABLE `monhoc`
   ADD PRIMARY KEY (`mamh`),
   ADD KEY `magv` (`magv`);
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `dangnhap`
+-- Các ràng buộc cho bảng `dangnhap`
 --
 ALTER TABLE `dangnhap`
   ADD CONSTRAINT `dangnhap_ibfk_1` FOREIGN KEY (`mahs`) REFERENCES `hocsinh` (`mahs`),
   ADD CONSTRAINT `dangnhap_ibfk_2` FOREIGN KEY (`magv`) REFERENCES `giaovien` (`magv`);
 
 --
--- Constraints for table `diem`
+-- Các ràng buộc cho bảng `diem`
 --
 ALTER TABLE `diem`
   ADD CONSTRAINT `diem_ibfk_1` FOREIGN KEY (`mahs`) REFERENCES `hocsinh` (`mahs`),
   ADD CONSTRAINT `diem_ibfk_2` FOREIGN KEY (`mamh`) REFERENCES `monhoc` (`mamh`);
 
 --
--- Constraints for table `hocsinh`
+-- Các ràng buộc cho bảng `hocsinh`
 --
 ALTER TABLE `hocsinh`
   ADD CONSTRAINT `hocsinh_ibfk_1` FOREIGN KEY (`malop`) REFERENCES `lop` (`malop`);
 
 --
--- Constraints for table `lop`
+-- Các ràng buộc cho bảng `lop`
 --
 ALTER TABLE `lop`
   ADD CONSTRAINT `lop_ibfk_1` FOREIGN KEY (`magvcn`) REFERENCES `giaovien` (`magv`);
 
 --
--- Constraints for table `monhoc`
+-- Các ràng buộc cho bảng `monhoc`
 --
 ALTER TABLE `monhoc`
   ADD CONSTRAINT `monhoc_ibfk_1` FOREIGN KEY (`magv`) REFERENCES `giaovien` (`magv`);
