@@ -81,7 +81,12 @@ if ($_SESSION['currentLevel'] == 1) {
 
             if ($classID == "" || $className == "" || $teacherID == "") {
                 alert("Vui lòng nhập đủ thông tin");
-            } else {
+            } else if($classID.length <3){
+                alert("Mã lớp học ít nhất 3 ký tự!");
+                return; 
+            } else if($className.length <3){
+                alert("Tên lớp học ít nhất 3 ký tự!");
+                return;
                 $.ajax({
                     type: "post",
                     url: "./process/process-add-class.php",

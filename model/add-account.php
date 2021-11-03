@@ -142,10 +142,12 @@ if ($_SESSION['currentLevel'] == 1) {
             if ($userName == "" || $password == "" || $level == "") {
                 alert("Vui lòng nhập đủ thông tin");
                 return;
+            } else if($userName.length <6){
+                alert("Tên đăng nhập phải lớn hơn 6 ký tự!");
+                return;
             } else if($password.length <6){
                 alert("Mật khẩu phải lớn hơn 6 ký tự!");
                 return;
-            } else{
                 $.ajax({
                     type: "post",
                     url: "./process/process-add-account.php",
