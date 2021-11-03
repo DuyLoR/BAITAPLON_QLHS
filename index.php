@@ -1,6 +1,5 @@
 <?php
 session_start();
-echo $_SESSION['currentId'];
 if (isset($_SESSION['currentUser'])) {
     include './model/header.php';
 ?>
@@ -63,12 +62,11 @@ if (isset($_SESSION['currentUser'])) {
     </div>
     <!--Container Main end-->
 
-
     <script src="./assets/js/main.js"></script>
+    <!-- </body>
 
-    </body>
+    </html> -->
 
-    </html>
 
 <?php
     include './model/footer.php';
