@@ -13,9 +13,11 @@ if (isset($_SESSION['currentUser'])) {
             <hr class="border-primary">
         </div>
     </div>
-    <!-- role giáo viên -->
+    <!-- role admin -->
     <?php
     if ($_SESSION['currentLevel'] == 1) {
+
+
     ?>
         <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
@@ -28,28 +30,56 @@ if (isset($_SESSION['currentUser'])) {
                     <div class="mt-3 mb-3" style="font-size: 1.875rem"><i class="fas fa-user-graduate"></i></div>
                     <div class="ps-3 my-3">
                         <p>Tổng số học sinh</p>
-                        <p></p>
+                        <?php
+                        $sql = "SELECT * FROM hocsinh";
+                        $result = mysqli_query($conn, $sql);
+                        if ($result = mysqli_query($conn, $sql)) {
+                            // Return the number of rows in result set
+                            $rowcount = mysqli_num_rows($result);
+                            echo "<p> $rowcount </p>";
+                        } ?>
                     </div>
                 </div>
                 <div class="col-md-2 col-12 bg-info d-flex mb-2 rounded justify-content-center">
                     <div class="mt-3 mb-3" style="font-size: 1.875rem"><i class="fas fa-user-tie"></i></div>
                     <div class="ps-3 my-3">
                         <p>Tổng số giáo viên</p>
-                        <p></p>
+                        <?php
+                        $sql = "SELECT * FROM giaovien";
+                        $result = mysqli_query($conn, $sql);
+                        if ($result = mysqli_query($conn, $sql)) {
+                            // Return the number of rows in result set
+                            $rowcount = mysqli_num_rows($result);
+                            echo "<p> $rowcount </p>";
+                        } ?>
                     </div>
                 </div>
                 <div class="col-md-2 col-12 bg-info d-flex mb-2 rounded justify-content-center">
                     <div class="mt-3 mb-3" style="font-size: 1.875rem"><i class="fas fa-book-open"></i></div>
                     <div class="ps-3 my-3">
                         <p>Tổng số môn học</p>
-                        <p></p>
+                        <?php
+                        $sql = "SELECT * FROM monhoc";
+                        $result = mysqli_query($conn, $sql);
+                        if ($result = mysqli_query($conn, $sql)) {
+                            // Return the number of rows in result set
+                            $rowcount = mysqli_num_rows($result);
+                            echo "<p> $rowcount </p>";
+                        } ?>
                     </div>
                 </div>
                 <div class="col-md-2 col-12 bg-info d-flex mb-2 rounded justify-content-center">
                     <div class="mt-3 mb-3" style="font-size: 1.875rem"><i class="fas fa-school"></i></div>
                     <div class="ps-3 my-3">
                         <p>Tổng số lớp học</p>
-                        <p></p>
+                        <?php
+                        $sql = "SELECT * FROM lop";
+                        $result = mysqli_query($conn, $sql);
+                        if ($result = mysqli_query($conn, $sql)) {
+                            // Return the number of rows in result set
+                            $rowcount = mysqli_num_rows($result);
+                            echo "<p> $rowcount </p>";
+                        } ?>
                     </div>
                 </div>
             </div>
