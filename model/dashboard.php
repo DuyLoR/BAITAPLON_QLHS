@@ -17,6 +17,11 @@ if (isset($_SESSION['currentUser'])) {
     <?php
     if ($_SESSION['currentLevel'] == 1) {
     ?>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <h2>Quản lý học sinh trường THPT</h2>
+        </div>
+    </nav>
         <div class="height-100 bg-light">
             <!-- <div class="col-12"> -->
             <!-- <div class="container"> -->

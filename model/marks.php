@@ -3,12 +3,13 @@ session_start();
 if (isset($_SESSION['currentUser'])) {
 
 ?>
+    </div>
     <div class="conten-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
 
-                    <h1 class="m-0 text-start">Bảng điểm</h1>
+                    <h2 class="m-0 text-start">Bảng điểm</h2>
 
                 </div>
             </div>
