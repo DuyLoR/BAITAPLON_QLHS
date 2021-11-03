@@ -146,3 +146,7 @@ if (isset($_SESSION['currentUser'])) {
 
     })
 </script>
+<?php
+    //? đóng kết nối
+    mysqli_close($conn);
+?>
