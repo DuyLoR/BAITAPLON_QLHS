@@ -17,14 +17,12 @@ if (isset($_SESSION['currentUser'])) {
     <?php
     if ($_SESSION['currentLevel'] == 1) {
     ?>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <h2>Quản lý học sinh trường THPT</h2>
-        </div>
-    </nav>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <h2>Quản lý học sinh trường THPT</h2>
+            </div>
+        </nav>
         <div class="height-100 bg-light">
-            <!-- <div class="col-12"> -->
-            <!-- <div class="container"> -->
             <div class="row mt-3 justify-content-around py-5 ">
                 <div class="col-md-2 col-12 bg-info d-flex mb-2 rounded justify-content-center">
                     <div class="mt-3 mb-3" style="font-size: 1.875rem"><i class="fas fa-user-graduate"></i></div>
@@ -75,7 +73,31 @@ if (isset($_SESSION['currentUser'])) {
                 </div>
                 <div class="card-body">
                     <blockquote class="blockquote mb-0">
-                        <p>Chào mừng đến với trang quản lý thông tin học sinh</p>
+                        <p>Chào mừng đến với trang quản lý học sinh</p>
+                        <footer class="blockquote-footer">Học, học nữa, học mãi! </footer>
+                    </blockquote>
+                </div>
+            </div>
+        <?php
+        }
+        ?>
+        <!-- role giáo viên -->
+        <?php
+        if ($_SESSION['currentLevel'] == 2) {
+        ?>
+            <div class="card">
+                <div class="card-header">
+                    <?php
+                    $id = $_SESSION['currentId'];
+                    $sql = "SELECT * FROM giaovien WHERE magv='$id' ";
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_assoc($result);
+                    echo "Xin chào " . $row['tengv'] . ' - ' . $id . "!";
+                    ?>
+                </div>
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p>Chào mừng đến với trang quản lý học sinh</p>
                         <footer class="blockquote-footer">Học, học nữa, học mãi! </footer>
                     </blockquote>
                 </div>
@@ -85,10 +107,10 @@ if (isset($_SESSION['currentUser'])) {
         ?>
 
     <?php
+
 } else header('location:login.php');
     ?>
-<?php
+    <?php
     //? đóng kết nối
     mysqli_close($conn);
-?>
-    
+    ?>

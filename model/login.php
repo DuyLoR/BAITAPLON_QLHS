@@ -12,7 +12,7 @@
 
 <body>
     <div id="loginForm" class="login-container">
-        <h2 class="text-center">Chào mừng bạn đến với PDLearn</h2>
+        <h2 class="text-center">QUẢN LÝ HỌC SINH</h2>
         <div class="row">
             <div class="col-md-12 form-group">
                 <input type="text" class="form-control" id="userName" name="userName" placeholder="userName">
