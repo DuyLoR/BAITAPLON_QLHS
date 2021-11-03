@@ -18,12 +18,18 @@ if (isset($_SESSION['currentUser'])) {
             <textarea class="form-control" id="emailContent" rows="3"></textarea>
         </div>
         <button id="send" type="submit" class="btn btn-primary">Gửi</button>
+        <button id="back" class="btn btn-danger">Quay lại</button>
+
     </div>
 <?php
 } else header('location:login.php');
 ?>
 <script>
     $(document).ready(function() {
+
+        $('#back').click(function() {
+            $('#contents').load("./model/students.php")
+        })
         //? truyền địa chỉ email
         $("#emailAddress").val($email);
 
