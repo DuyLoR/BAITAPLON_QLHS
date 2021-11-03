@@ -106,7 +106,7 @@ session_start();
         $('#list').dataTable()
 
         $('.newSubject').click(function() {
-            $('#contents').load("add-subject.php")
+            $('#contents').load("./model/add-subject.php")
         })
 
         // Sửa học sinh
@@ -119,7 +119,7 @@ session_start();
             $subjectPrice = $id.split(",")[2];
             $teacherID = $id.split(",")[3];
 
-            $('#contents').load("edit-subject.php")
+            $('#contents').load("./model/edit-subject.php")
         })
         //? xoá môn học
         $('.deleteSubject').click(function() {
@@ -128,14 +128,14 @@ session_start();
                 //? nếu đồng ý
                 $.ajax({
                     type: "post",
-                    url: "../process/process-delete-subject.php",
+                    url: "./process/process-delete-subject.php",
                     data: {
                         subjectId: $id,
                     },
                     success: function(response) {
                         if (response == 'success') {
                             alert("Xoá thành công!")
-                            $('#contents').load("subjects.php")
+                            $('#contents').load("./model/subjects.php")
                         } else if (response == 'error') {
                             alert("Xoá thất bại")
                         }

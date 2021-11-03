@@ -104,7 +104,7 @@
 <script>
     $(document).ready(function() {
         $('.backStudent').click(function() {
-            $('#contents').load("students.php")
+            $('#contents').load("./model/students.php")
         })
 
         $('#btnSubmit').click(function() {
@@ -124,7 +124,7 @@
             } else {
                 $.ajax({
                     type: "post",
-                    url: "../process/process-add-student.php",
+                    url: "./process/process-add-student.php",
                     data: {
                         studentName: $studentName,
                         studentID: $studentID,
@@ -139,7 +139,7 @@
                     success: function(response) {
                         if (response == "success") {
                             alert("Thêm thành công");
-                            $('#contents').load("students.php");
+                            $('#contents').load("./model/students.php");
                         } else {
                             alert("Thêm thất bại");
                         }

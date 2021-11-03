@@ -118,7 +118,7 @@ session_start();
 
         //? thêm điểm
         $('.newMark').click(function() {
-            $('#contents').load("add-mark.php")
+            $('#contents').load("./model/add-mark.php")
         })
 
         // Sửa điểm
@@ -132,7 +132,7 @@ session_start();
             $markSecond = $id.split(",")[3];
             $markThird = $id.split(",")[4];
 
-            $('#contents').load("edit-mark.php")
+            $('#contents').load("./model/edit-mark.php")
         })
 
         //? xoá điểm
@@ -144,7 +144,7 @@ session_start();
                 //? nếu đồng ý
                 $.ajax({
                     type: "post",
-                    url: "../process/process-delete-mark.php",
+                    url: "./process/process-delete-mark.php",
                     data: {
                         studentId: $studentId,
                         subjectId: $subjectId

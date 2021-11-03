@@ -87,7 +87,7 @@
 <script>
     $(document).ready(function() {
         $('.backResult').click(function() {
-            $('#contents').load("marks.php")
+            $('#contents').load("./model/marks.php")
         })
 
         $('#btnSubmit').click(function() {
@@ -102,7 +102,7 @@
             } else {
                 $.ajax({
                     type: "post",
-                    url: "../process/process-add-mark.php",
+                    url: "./process/process-add-mark.php",
                     data: {
                         subjectID: $subjectID,
                         studentID: $studentID,
@@ -113,7 +113,7 @@
                     success: function(response) {
                         if (response == "success") {
                             alert("Thêm thành công");
-                            $('#contents').load("marks.php");
+                            $('#contents').load("./model/marks.php");
                         } else {
                             alert("Thêm thất bại");
                         }

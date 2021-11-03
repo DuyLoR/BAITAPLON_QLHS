@@ -88,14 +88,14 @@ session_start();
         //? import thư viện data table
         $('#list').dataTable()
 
-        //? thêm lớp 
+        //? thêm tài khoản
         $('.newAccount').click(function() {
-            $('#contents').load("add-account.php")
+            $('#contents').load("./model/add-account.php")
         })
         //? sửa tài khoản 
         $('.editAccount').click(function() {
             $userName = $(this).attr('name'); //? bắt giá trị name của hàng
-            $('#contents').load("edit-account.php")
+            $('#contents').load("./model/edit-account.php")
         })
 
 
@@ -106,14 +106,14 @@ session_start();
                 //? nếu đồng ý
                 $.ajax({
                     type: "post",
-                    url: "../process/process-delete-account.php",
+                    url: "./process/process-delete-account.php",
                     data: {
                         userName: $id,
                     },
                     success: function(response) {
                         if (response == 'success') {
                             alert("Xoá thành công!")
-                            $('#contents').load("accounts.php")
+                            $('#contents').load("./model/accounts.php")
                         } else if (response == 'error') {
                             alert("Xoá thất bại")
                         }
@@ -124,15 +124,7 @@ session_start();
         });
 
 
-        //? sửa tài khoản
-        $('.editClass').click(function() {
-            $id = $(this).attr('name'); //? bắt giá trị name của hàng
-            $classID = $id.split(",")[0];
-            $className = $id.split(",")[1];
-            $teacherID = $id.split(",")[2];
-            $('#contents').load("edit-class.php")
 
-        });
 
 
 

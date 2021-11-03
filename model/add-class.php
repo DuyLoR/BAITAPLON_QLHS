@@ -63,7 +63,7 @@
 <script>
     $(document).ready(function() {
         $('.backResult').click(function() {
-            $('#contents').load("classes.php")
+            $('#contents').load("./model/classes.php")
         })
 
         $('#btnSubmit').click(function() {
@@ -76,7 +76,7 @@
             } else {
                 $.ajax({
                     type: "post",
-                    url: "../process/process-add-class.php",
+                    url: "./process/process-add-class.php",
                     data: {
                         classID: $classID,
                         className: $className,
@@ -85,7 +85,7 @@
                     success: function(response) {
                         if (response == "success") {
                             alert("Thêm thành công");
-                            $('#contents').load("classes.php");
+                            $('#contents').load("./model/classes.php");
                         } else {
                             alert("Thêm thất bại");
                         }

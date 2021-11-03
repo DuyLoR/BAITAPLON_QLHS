@@ -2,7 +2,7 @@
 session_start();
 echo $_SESSION['currentId'];
 if (isset($_SESSION['currentUser'])) {
-    include './header.php';
+    include './model/header.php';
 ?>
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
@@ -51,7 +51,7 @@ if (isset($_SESSION['currentUser'])) {
                     </a>
                 </div>
             </div>
-            <a href="../process/process-logout.php" class="nav_link" id="logout">
+            <a href="./process/process-logout.php" class="nav_link" id="logout">
                 <i class='bx bx-log-out nav_icon'></i>
                 <span class="nav_name">Đăng xuất</span>
             </a>
@@ -64,13 +64,13 @@ if (isset($_SESSION['currentUser'])) {
     <!--Container Main end-->
 
 
-    <script src="../assets/js/main.js"></script>
+    <script src="./assets/js/main.js"></script>
 
     </body>
 
     </html>
 
 <?php
-    include './footer.php';
-} else header('location:login.php');
+    include './model/footer.php';
+} else header('location:./model/login.php');
 ?>

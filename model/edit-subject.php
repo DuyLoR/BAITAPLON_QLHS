@@ -70,7 +70,7 @@
 
 
         $('.backSubject').click(function() {
-            $('#contents').load("subjects.php")
+            $('#contents').load("./model/subjects.php")
         })
 
         $('#btnSubmit').click(function() {
@@ -84,7 +84,7 @@
             } else {
                 $.ajax({
                     type: "post",
-                    url: "../process/process-edit-subject.php",
+                    url: "./process/process-edit-subject.php",
                     data: {
                         subjectName: $subjectName,
                         subjectID: $subjectID,
@@ -94,7 +94,7 @@
                     success: function(response) {
                         if (response == "success") {
                             alert("Sửa thành công");
-                            $('#contents').load("subjects.php");
+                            $('#contents').load("./model/subjects.php");
                         } else {
                             alert("Sửa thất bại");
                         }

@@ -73,7 +73,7 @@
         $("#teacherID").val($teacherID);
 
         $('.backResult').click(function() {
-            $('#contents').load("classes.php")
+            $('#contents').load("./model/classes.php")
         })
 
         $('#btnSubmit').click(function() {
@@ -86,7 +86,7 @@
             } else {
                 $.ajax({
                     type: "post",
-                    url: "../process/process-edit-class.php",
+                    url: "./process/process-edit-class.php",
                     data: {
                         classID: $classID,
                         className: $className,
@@ -95,7 +95,7 @@
                     success: function(response) {
                         if (response == "success") {
                             alert("sửa thành công");
-                            $('#contents').load("classes.php");
+                            $('#contents').load("./model/classes.php");
                         } else {
                             alert("sửa thất bại");
                         }

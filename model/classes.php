@@ -99,7 +99,7 @@ session_start();
 
         //? thêm lớp 
         $('.newClass').click(function() {
-            $('#contents').load("add-class.php")
+            $('#contents').load("./model/add-class.php")
         })
 
 
@@ -110,14 +110,14 @@ session_start();
                 //? nếu đồng ý
                 $.ajax({
                     type: "post",
-                    url: "../process/process-delete-class.php",
+                    url: "./process/process-delete-class.php",
                     data: {
                         classId: $id,
                     },
                     success: function(response) {
                         if (response == 'success') {
                             alert("Xoá thành công!")
-                            $('#contents').load("classes.php")
+                            $('#contents').load("./model/classes.php")
                         } else if (response == 'error') {
                             alert("Xoá thất bại")
                         }
@@ -134,7 +134,7 @@ session_start();
             $classID = $id.split(",")[0];
             $className = $id.split(",")[1];
             $teacherID = $id.split(",")[2];
-            $('#contents').load("edit-class.php")
+            $('#contents').load("./model/edit-class.php")
 
         });
 
