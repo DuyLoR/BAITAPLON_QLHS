@@ -19,6 +19,7 @@ if ($result > 0) {
 } else {
     echo "error";
 }
+?>
 <?php
     //? đóng kết nối
     mysqli_close($conn);
