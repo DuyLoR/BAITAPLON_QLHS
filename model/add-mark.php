@@ -132,3 +132,7 @@ if ($_SESSION['currentLevel'] == 1 || $_SESSION['currentLevel'] == 2) {
         });
     })
 </script>
+<?php
+    //? đóng kết nối
+    mysqli_close($conn);
+?>

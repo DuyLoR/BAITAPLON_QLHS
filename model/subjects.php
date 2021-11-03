@@ -122,6 +122,33 @@ if (isset($_SESSION['currentUser'])) {
             $subjectPrice = $id.split(",")[2];
             $teacherID = $id.split(",")[3];
 
+<<<<<<< HEAD
+        $('#contents').load("edit-subject.php")
+    })
+<<<<<<< HEAD
+</script>
+<?php
+    include 'footer.php';
+?>
+=======
+    //? xoá môn học
+    $('.deleteSubject').click(function() {
+        $id = $(this).attr('name'); //? bắt giá trị name của hàng
+        if (confirm("Bạn có muốn xoá môn học '" + $id + "' không?")) {
+            //? nếu đồng ý
+            $.ajax({
+                type: "post",
+                url: "../process/process-delete-subject.php",
+                data: {
+                    subjectId: $id,
+                },
+                success: function(response) {
+                    if (response == 'success') {
+                        alert("Xoá thành công!")
+                        $('#contents').load("subjects.php")
+                    } else if (response == 'error') {
+                        alert("Xoá thất bại")
+=======
             $('#contents').load("./model/edit-subject.php")
         })
         //? xoá môn học
@@ -142,10 +169,18 @@ if (isset($_SESSION['currentUser'])) {
                         } else if (response == 'error') {
                             alert("Xoá thất bại")
                         }
+>>>>>>> master
                     }
                 });
             } else return false;
 
+<<<<<<< HEAD
+    });
+})
+</script>
+>>>>>>> master
+=======
         });
     })
 </script>
+>>>>>>> master
