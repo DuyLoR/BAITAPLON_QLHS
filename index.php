@@ -64,13 +64,18 @@ if (isset($_SESSION['currentUser'])) {
 
         </div>
         <!--Container Main end-->
+
+        <!-- chat -->
+        <?php include './model/chat.php' ?>
+
+        <!-- footer -->
         <?php include_once './model/footer.php' ?>
     </div>
 
+    <script src="./assets/js/chat.js">
+    </script>
     <script src="./assets/js/main.js"></script>
-    <!-- </body>
 
-    </html> -->
 
 
 <?php

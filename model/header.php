@@ -24,6 +24,7 @@
     <!-- my css -->
     <link rel="stylesheet" href="./assets/css/table-data.css">
     <link rel="stylesheet" href="./assets/css/sidebar.css">
+    <link rel="stylesheet" href="./assets/css/chat.css">
     <title>Quản lý học sinh</title>
 </head>
 
