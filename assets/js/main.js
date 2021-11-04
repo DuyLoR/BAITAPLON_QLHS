@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     bodypd.classList.toggle('body-pd')
     // add padding to header
     headerpd.classList.toggle('body-pd')
-    
+
     // Validate that all variables exist
     if(toggle && nav && bodypd && headerpd){
     toggle.addEventListener('click', ()=>{

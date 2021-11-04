@@ -1,16 +1,20 @@
 <?php
     $userName = $_POST['userName'];
     $level = $_POST['level'];
-    $teacherId = $_POST['teacherId'];
-    $studentId = $_POST['studentId'];
+    $studentId = "NULL";
+    $teacherId = "NULL";
     include '../config/config.php';
-    $sql = "UPDATE `dangnhap` SET `capdo`='$level', `mahs` = $studentId, `magv` = $teacherId WHERE tendangnhap = '$userName'";
+    $sql = "UPDATE `dangnhap` SET `capdo`='$level', `mahs` = $studentId, `magv` = $teacherId 
+    WHERE tendangnhap = '$userName'";
     if($level == 0){
-        $sql = "UPDATE `dangnhap` SET `capdo`='$level', `mahs` = '$studentId' WHERE tendangnhap = '$userName'";
-
+    $studentId = $_POST['studentId'];
+        $sql = "UPDATE `dangnhap` SET `capdo`='$level', `mahs` = '$studentId' 
+        WHERE tendangnhap = '$userName'";
     }
     if($level == 2){
-        $sql = "UPDATE `dangnhap` SET `capdo`='$level', `magv` = '$teacherId' WHERE tendangnhap = '$userName'";
+    $teacherId = $_POST['teacherId'];
+        $sql = "UPDATE `dangnhap` SET `capdo`='$level', `magv` = '$teacherId' 
+        WHERE tendangnhap = '$userName'";
     }
     $result = mysqli_query($conn, $sql);
     if($result > 0){
