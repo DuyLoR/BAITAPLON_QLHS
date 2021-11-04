@@ -91,7 +91,10 @@ if ($_SESSION['currentLevel'] == 1 || $_SESSION['currentLevel'] == 2) {
             if ($teacherID == "" || $teacherName == "" || $teacherAddress == "" || $teacherGender == "" ||
                 $teacherPosition == "" || $teacherEmail == "" || $teacherPhone == "") {
                 alert("Vui lòng nhập đủ thông tin");
-            } else {
+            } else if($teacherID.length < 4) {
+                alert("Mã giáo viên cần ít nhất 4 ký tự");
+                return;
+            }else{
                 $.ajax({
                     type: "post",
                     url: "./process/process-add-teacher.php",
