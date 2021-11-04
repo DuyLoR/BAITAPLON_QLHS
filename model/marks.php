@@ -9,7 +9,7 @@ if (isset($_SESSION['currentUser'])) {
             <div class="row mb-2">
                 <div class="col-sm-6">
 
-                    <h2 class="m-0 text-start">Bảng điểm</h2>
+                    <h1 class="m-0 text-start">Bảng điểm</h1>
 
                 </div>
             </div>
@@ -169,6 +169,6 @@ if (isset($_SESSION['currentUser'])) {
     })
 </script>
 <?php
-    //? đóng kết nối
-    mysqli_close($conn);
+//? đóng kết nối
+mysqli_close($conn);
 ?>

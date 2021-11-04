@@ -64,13 +64,47 @@ if (isset($_SESSION['currentUser'])) {
 
         </div>
         <!--Container Main end-->
+
+        <!-- chat -->
+        <div class="l_c_h">
+            <div class="c_h">
+                <div class="left_c">
+                    <div class="left right_c left_icons">
+                        <a href="#" class="mini" style="font-size:23px;">+</a>
+                    </div>
+                    <div class="left center_icons">
+                        <!--center_icons-->
+                        Chat for help!
+                    </div>
+                    <!--end center_icons-->
+                </div>
+                <div class="right right_c" style="width:35px;">
+                    <a href="#" class="logout" title="End chat" name="" style="display:none;"><img src="chat/logout.png"></a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="chat_container" style="display: none;">
+                <p class="no_provider">
+                    Xin chào <?php echo $_SESSION['currentUser'] ?>! tôi có thể giúp gì cho bạn?
+                </p>
+
+                <div class="chat_entry">
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"></textarea>
+                    </div>
+                    <input type="submit" name="chat_submit" class="chat_submit" id="chat_submit" value="Gửi">
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
         <?php include_once './model/footer.php' ?>
     </div>
 
+    <script src="./assets/js/chat.js">
+    </script>
     <script src="./assets/js/main.js"></script>
-    <!-- </body>
 
-    </html> -->
 
 
 <?php
