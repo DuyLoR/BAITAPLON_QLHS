@@ -24,7 +24,7 @@ if (isset($_SESSION['currentUser'])) {
                 <h2>Quản lý học sinh trường THPT</h2>
             </div>
         </nav>
-        <div class="height-100 bg-light">
+        <div class="col col-lg-12 bg-light">
             <div class="row mt-3 justify-content-around py-5 ">
                 <div class="col-md-2 col-12 bg-info d-flex mb-2 rounded justify-content-center">
                     <div class="mt-3 mb-3" style="font-size: 1.875rem"><i class="fas fa-user-graduate"></i></div>
