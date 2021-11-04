@@ -107,7 +107,7 @@ if ($_SESSION['currentLevel'] == 1 || $_SESSION['currentLevel'] == 2) {
 
             if ($markFirst == "" || $markSecond == "" || $markThird == "") {
                 alert("Vui lòng nhập đủ thông tin");
-            } else {
+            } else{
                 $.ajax({
                     type: "post",
                     url: "./process/process-add-mark.php",

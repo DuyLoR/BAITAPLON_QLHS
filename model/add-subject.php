@@ -84,7 +84,7 @@ if ($_SESSION['currentLevel'] == 1 || $_SESSION['currentLevel'] == 2) {
             } else if($subjectID.length <4){
                 alert("Mã môn học ít nhất 4 ký tự!");
                 return;
-            }else if($subjectPrice.isNaN <20){
+            }else if($subjectPrice.l <20){
                 alert("Số tiết học cần lớn hơn 20!")
                 return;
             }else{

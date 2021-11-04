@@ -131,7 +131,8 @@ if ($_SESSION['currentLevel'] == 1 || $_SESSION['currentLevel'] == 2) {
             }else if($studentID.length <4){
                 alert("Mã học sinh cần ít nhất 4 ký tự!");
                 return;
-            }else{
+            }
+            else{
                 $.ajax({
                     type: "post",
                     url: "./process/process-add-student.php",
