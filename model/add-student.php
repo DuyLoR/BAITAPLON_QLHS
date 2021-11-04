@@ -128,7 +128,8 @@ if ($_SESSION['currentLevel'] == 1 || $_SESSION['currentLevel'] == 2) {
             if ($studentID == "" || $studentName == "" || $studentAddress == "" || $course == "" ||
                 $parentName == "" || $parentPhone == "" || $parentEmail == "") {
                 alert("Vui lòng nhập đủ thông tin");
-            } else {
+            } else
+                {
                 $.ajax({
                     type: "post",
                     url: "./process/process-add-student.php",
