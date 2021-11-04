@@ -24,7 +24,7 @@
             <div class="form-floating">
                 <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px">Chưa gửi được đâu</textarea>
             </div>
-            <input name="chat_submit" class="w-25 chat_submit mt-1" id="chat_submit" value="Gửi">
+            <input type="submit" name="chat_submit" class="w-25 chat_submit mt-1 btn" id="chat_submit" value="Gửi">
         </div>
     </div>
 </div>
