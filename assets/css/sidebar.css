@@ -180,12 +180,3 @@ a {
 		padding-left: calc(var(--nav-width) + 188px);
 	}
 }
-.footer {
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	height: 46px;
-	line-height: 46px;
-	/* background: #4723d9; */
-}

@@ -64,8 +64,9 @@ if (isset($_SESSION['currentUser'])) {
 
         </div>
         <!--Container Main end-->
+        <?php include_once './model/footer.php' ?>
     </div>
-    </body>
+
     <script src="./assets/js/main.js"></script>
     <!-- </body>
 
