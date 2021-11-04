@@ -80,9 +80,11 @@ if ($_SESSION['currentLevel'] == 1 || $_SESSION['currentLevel'] == 2) {
 
             if ($subjectID == "" || $subjectName == "" || $subjectPrice == "" || $teacherID == "") {
                 alert("Vui lòng nhập đủ thông tin");
-            } else if($subjectID.length <4){
-                alert("Mã lớp học ít nhất 4 ký tự!");
                 return;
+            } else if($subjectID.length <4){
+                alert("Mã môn học ít nhất 4 ký tự!");
+                return;
+            }else{
                 $.ajax({
                     type: "post",
                     url: "./process/process-add-subject.php",
