@@ -53,7 +53,7 @@ if (isset($_SESSION['currentUser'])) {
                             alert("Đã gửi")
                         } else if (response == 'error') {
                             alert("Gửi không thành công")
-                        }
+                        } else alert("gửi thất bại")
                     }
                 });
             }
