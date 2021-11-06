@@ -22,8 +22,8 @@ try {
     $mail->SMTPAuth = 'true'; //* enable smtp authentication
     $mail->SMTPSecure = 'tls'; //* set type of encryption (ssl, tls)
     $mail->Port = '587'; //* set post to connect smtp
-    $mail->Username = 'abc'; //* Nhập tài khoản mail để gửi
-    $mail->Password = 'abc'; //* nhập mật khẩu
+    $mail->Username = 'loofehtt@gmail.com'; //* Nhập tài khoản mail để gửi
+    $mail->Password = 'phuphuphu1'; //* nhập mật khẩu
     $mail->CharSet = 'UTF-8'; //* set vietnamese
     //Recipients
     //* set sender email

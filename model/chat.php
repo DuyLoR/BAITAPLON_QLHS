@@ -11,7 +11,7 @@
             <!--end center_icons-->
         </div>
         <div class="right right_c" style="width:35px;">
-            <a href="#" class="logout" title="End chat" name="" style="display:none;"><img src="chat/logout.png"></a>
+            <a href="#" class="logout" title="End chat" name="" style="display:none;"><img src=""></a>
         </div>
         <div class="clear"></div>
     </div>
